@@ -25,8 +25,9 @@
         </div>
       </header>
       <nav class="aside-pagination">
+        <div class="indicator"></div>
         <ul>
-          <li data-gotoslide="3" class="gotoslide goto3 aside-pagination__href is-active">01</li>
+          <li data-gotoslide="3" class="gotoslide first goto3 aside-pagination__href is-active">01</li>
           <li data-gotoslide="4" class="gotoslide goto4 aside-pagination__href">02</li>
           <li data-gotoslide="5" class="gotoslide goto5 aside-pagination__href">03</li>
         </ul>
@@ -38,7 +39,7 @@
           <div class="container-fluid desktop">
             <div class="row no-gutters justify-content-center align-items-center">
               <div class="centered">
-                <!--<h1 id="text1" class="title&#45;&#45;title2 text1 title"> Strong creative  <br> solutions<span class="line-orange">.</span></span></h1>-->
+                <!--<h1 id="text1" class="title--title2 text1 title"> Strong creative  <br> solutions<span class="line-orange">.</span></span></h1>-->
                 <h1 class="title--title2 text1 title" aria-label="We make " style="opacity: 1;">
                   <!--<span  id="strong">Strong</span>-->
                   <div class="char char1 w1" id="char1">S</div>
@@ -151,7 +152,7 @@
           <div class="container">
             <div class="row justify-content-between">
               <div class="col-md-6">
-                <img src="img/img-about.png" alt="">
+                <img srcset="img/img-about@1x.png, img/img-about@2x.png 2x" src="img/img-about@1x.png" alt="">
               </div>
               <div class="col-md-5 col-md-offset-1">
                 <div class="about">
@@ -190,7 +191,9 @@
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <img data-stagger class="main-slide__img" src="/img/img-consulting.png" alt="">
+                  <div class="centered-block">
+                    <img data-stagger class="main-slide__img" srcset="img/img-creativity@1x.png, img/img-creativity@2x.png 2x" src="/img/img-creativity@1x.png" alt="">
+                  </div>
                 </div>
               </div>
             </div>
@@ -222,7 +225,9 @@
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <img data-stagger class="main-slide__img" src="/img/img-consulting.png" alt="">
+                  <div class="centered-block">
+                    <img data-stagger class="main-slide__img" srcset="/img/img-consulting@1x.png, /img/img-consulting@2x.png 2x" src="/img/img-consulting@1x.png" alt="">
+                  </div>
                 </div>
               </div>
             </div>
@@ -254,17 +259,24 @@
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <img data-stagger class="main-slide__img" src="/img/img-consulting.png" alt="">
+                  <div class="centered-block">
+                    <img data-stagger class="main-slide__img" srcset="/img/img-investment@1x.png, /img/img-investment@2x.png 2x" src="/img/img-investment@1x.png" alt="">
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section data-slide="6" class="section slide slide6 contact-us scrollMajicFix">
-          <h4 class="contact-us__title">Have a project in mind?</h4>
-          <button class="button button--secondary">Contact us</button>
+        <section data-slide="6" class="section slide slide6 contact-us ">
+          <div class="contact-us__container-center">
+            <div class="contact-us__animation">
+              <h4 class="contact-us__title">Have a project in mind?</h4>
+              <button class="button button--secondary">Contact us</button>
+            </div>
+          </div>
         </section>
-        <section data-slide="7" class="section slide slide7 footer-section scrollMajicFix">
+        <section data-slide="7" class="section slide slide7 footer-section">
+          <div class="header-bg"></div>
           <div class="row-flex">
             <div class="col-50">
               <div class="location">
