@@ -290,7 +290,7 @@ h1 {
     width: 100%;
     left: 0;
     top: 0;
-    z-index: 400;
+    z-index: 405;
     opacity: 0;
 }
 .menu {
@@ -313,6 +313,7 @@ h1 {
     flex-direction: column;
     width: 22px;
     height: 22px;
+    z-index: 405;
     &__line {
         width: 100%;
         height: 2px;
@@ -480,7 +481,7 @@ h1 {
     opacity: 0;
     top: 0;
     left: 0;
-    margin-top: 98px;
+    padding-top: 98px;
 
     @media (min-width: 1440px) and (min-height: 800px) {
         top: 100px;
@@ -563,7 +564,9 @@ h1 {
     top: 0;
     z-index: 2;
 }
-
+.container-fluid.no-gutters {
+    padding: 0;
+}
 .contact-us {
     text-align: center;
     height: 100vh;
@@ -802,6 +805,13 @@ h1 {
 .footer-section {
     background: $orange;
     position: relative;
+    &__left {
+        background: $orange;
+    }
+    &__right {
+        position: relative;
+        padding: 0;
+    }
 
     webkitClipPath: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
     clipPath: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
@@ -862,8 +872,30 @@ h1 {
 }
 
 .map {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top:0;
+    z-index: -1;
     background: #767d85;
     height: 100%;
+    &__img {
+        object-fit: cover;
+        //height: 500px;
+        height: calc(100% - 165px)
+    }
+    &__marker {
+        position: absolute;
+        top: 28%;
+        left: 50%;
+        margin-left: -15px;
+        z-index: 2;
+    }
+}
+.map-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 .footer {
     position: absolute;

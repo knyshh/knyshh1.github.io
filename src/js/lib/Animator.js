@@ -1,8 +1,13 @@
 import PubSub from 'pubsub-js';
 import {TimelineMax, TweenLite,TimelineLite, Power0, Power4, Power1, Power3, Back,Circ, Expo } from 'gsap';
 
-PubSub.subscribe( 'gotoSlide', function(msg, data) {
 
+const EVENTS = {
+  SCROLL: 'scroll',
+  CLICK: 'click'
+}
+
+PubSub.subscribe( 'gotoSlide', function(msg, data) {
 
   let currentSlide = $('[data-slide='+data.from+']');
   let newSlide = $('[data-slide='+data.to+']');
@@ -42,25 +47,12 @@ PubSub.subscribe( 'gotoSlide', function(msg, data) {
   slide2.eventCallback("onComplete", onCompleteSlide2);
 
 
-
-  const slidePagination = new TimelineMax();
-
   if(data.to >=3 && data.to<=5) {
     $('.aside-pagination').css("opacity",1);
   }
   else {
     $('.aside-pagination').css("opacity",0);
   }
-
-
-  let positionIndicator = $('.aside-pagination li.is-active').position().top + 34;
-  slidePagination
-    .set('.indicator', {top: positionIndicator})
-  positionIndicator && direction ===1 ?
-    slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5') :
-    slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5')
-
-  slidePagination.eventCallback("onComplete", null);
 
   let footer = $('.footer');
   let footerHeader = $(".footer-header-bg")
@@ -81,20 +73,16 @@ PubSub.subscribe( 'gotoSlide', function(msg, data) {
   let tl = new TimelineMax();
 
   let onCompleteContactUs = () => {
-    // console.log('oncomplete 6')
     tl.set($('.slide6'), {clearProps:"all"})
   }
 
   let onCompleteFooter = () => {
-    // console.log('oncomplete 7-6');
     tl.set($('.slide7'), {clearProps:"all"})
 
   }
 
 
   if( data.from === 6 &&  data.to === 7 ) {
-    // console.log('6->7');
-
     tl
       .fromTo(currentSlide, 0.5,{y: '0%', ease: Back.easeOut},{y: '-150%',
         ease: Power4.easeInOut,
@@ -107,7 +95,6 @@ PubSub.subscribe( 'gotoSlide', function(msg, data) {
       .set(newSlide,{opacity: 1},'-=2.4')
   }
   else if( data.from === 7 &&  data.to === 6 ) {
-    // console.log('7->6');
     tl
       .fromTo(currentSlide, 0.5,{y: '-150%', ease: Back.easeOut},{y: '0', ease: Power4.easeInOut,
       onComplete: onCompleteFooter})
@@ -115,7 +102,6 @@ PubSub.subscribe( 'gotoSlide', function(msg, data) {
       .set($('.slide7'), {y: '0'})
   }
   else {
-    // console.log('else')
     tl
       .fromTo(currentSlide,0.5,{opacity: 1},{opacity: 0}, '+=0.1')
       .set(newSlide,{opacity: 1},'-=2.4')
@@ -124,16 +110,38 @@ PubSub.subscribe( 'gotoSlide', function(msg, data) {
 });
 
 
-var mySpecificSubscriber = function () {
-  // console.log('slide event')
+var mySpecificSubscriber = function (msg, data) {
+
+  let direction = data.direction,
+    event = data.event;
+
+  console.log('direction', direction, event)
+
   $('.aside-pagination').css("opacity",1);
   $('.aside-pagination li.is-active').css("color", "#000");
   $('.aside-pagination li').css("color", "#cfdbe6");
 
   const slidePagination = new TimelineMax();
-  slidePagination
-    .fromTo($('.aside-pagination li.is-active'), 0.1 ,{color: '#cfdbe6' },{color: '#000'}, 0.3)
-  slidePagination.eventCallback("onComplete", null);
+
+  let positionIndicator = $('.aside-pagination li.is-active').offset().top;
+  let currentItem  = $('[data-gotoslide='+data.from+']');
+  let newItem = $('[data-gotoslide='+data.to+']');
+
+  if(event === EVENTS.SCROLL) {
+    console.log('scroll');
+    slidePagination
+      .set('.indicator', {top: positionIndicator})
+      positionIndicator && direction ===1 ?
+      slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5') :
+      slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5')
+      slidePagination.fromTo($('.aside-pagination li.is-active'), 0.1 ,{color: '#cfdbe6' },{color: '#000'}, '+=0.2')
+  }
+  else if ( event === EVENTS.CLICK) {
+      console.log('click');
+       slidePagination
+        .fromTo('.indicator', 0.2, {top: currentItem.offset().top }, {top: newItem.offset().top, ease:Power1.easeIn}, '-=0.2')
+         .to(newItem,0.1, {color: '#000' })
+  }
 
   const slide5 = new TimelineLite({paused: true});
   slide5

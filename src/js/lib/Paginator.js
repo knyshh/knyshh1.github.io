@@ -28,11 +28,8 @@ export default class Paginator {
 
       PubSub.publish( 'gotoSlide', {from: self.activeSlide,to:newslide,direction: direction} );
 
-      console.log('newslide',newslide)
       if( newslide>=3 && newslide<=5) {
-        var activeSlideInside = $(this).data('slider-inside');//slider-inside 1
-        var newslideInside = self.activeSliderInside + direction;//slider-inside 2
-        PubSub.publish( 'gotoSlide.slide', {from: self.activeSlide, to:newslide, direction: direction } );
+        PubSub.publish( 'gotoSlide.slide', {from: self.activeSlide, to:newslide, direction: direction,event: 'scroll' } );
       }
 
       self.activeSlide = newslide;
@@ -47,9 +44,8 @@ export default class Paginator {
     var self = this;
 
     $('.scroll').on('click',function(e) {
-      console.log('click', $(this).data('goto'))
       let newslidescroll = $(this).data('goto');
-      PubSub.publish( 'gotoSlide', {from: self.activeSlide, to:newslidescroll,} );
+      PubSub.publish( 'gotoSlide', {from: self.activeSlide, to:newslidescroll} );
       self.activeSlide = newslidescroll;
     });
 
@@ -57,10 +53,14 @@ export default class Paginator {
       e.preventDefault();
       if(!self.canGoInside) return;
       self.canGoInside = false;
-      var newslide = $(this).data('gotoslide');
+      let newslide = $(this).data('gotoslide');
 
-      if(newslide!==self.activeSlider) {
-        PubSub.publish( 'gotoSlide', {from: self.activeSlide,to:newslide});
+      let direction =  self.activeSlide  < newslide ? 1 : -1 ;
+
+      console.log('self.activeSlide , newslide)',self.activeSlide, newslide)
+
+      if(newslide !== self.activeSlide) {
+        PubSub.publish( 'gotoSlide.slide', {from: self.activeSlide, to:newslide , direction: direction, event: 'click' } );
         self.activeSlide = newslide;
         setTimeout(function() {
           self.canGoInside = true;
