@@ -480,10 +480,14 @@ h1 {
     opacity: 0;
     top: 0;
     left: 0;
-    margin-top: 68px;
+    margin-top: 98px;
 
-    @media (min-width: 1440px) and (min-height: 800px){
+    @media (min-width: 1440px) and (min-height: 800px) {
         top: 100px;
+    }
+
+    @media (min-height: 800px) {
+        margin-top: 190px
     }
 
     &__href {
@@ -923,7 +927,7 @@ h1 {
     max-width: 500px;
     height: 100vh;
     background: $white;
-    z-index: 360;
+    z-index: 402;
     text-align: center;
     padding: 130px 0 0;
 
