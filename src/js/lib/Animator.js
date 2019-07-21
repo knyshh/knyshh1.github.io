@@ -42,13 +42,8 @@ PubSub.subscribe( 'gotoSlide', function(msg, data) {
   slide2.eventCallback("onComplete", onCompleteSlide2);
 
 
+
   const slidePagination = new TimelineMax();
-  if (data.from > 2 && data.to <=5) {
-   let positionIndicator = $('.aside-pagination li.is-active').offset().top;
-    positionIndicator && direction ===1 ?
-      slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5') :
-      slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5')
-  }
 
   if(data.to >=3 && data.to<=5) {
     $('.aside-pagination').css("opacity",1);
@@ -56,6 +51,15 @@ PubSub.subscribe( 'gotoSlide', function(msg, data) {
   else {
     $('.aside-pagination').css("opacity",0);
   }
+
+
+  let positionIndicator = $('.aside-pagination li.is-active').position().top + 34;
+  slidePagination
+    .set('.indicator', {top: positionIndicator})
+  positionIndicator && direction ===1 ?
+    slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5') :
+    slidePagination.to('.indicator', 0.2, {top: positionIndicator, ease:Power1.easeIn}, '-=0.5')
+
   slidePagination.eventCallback("onComplete", null);
 
   let footer = $('.footer');
