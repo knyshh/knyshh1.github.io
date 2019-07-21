@@ -14,25 +14,29 @@
     <!-- BEGIN content -->
     <div class="container-app">
       <header class="header">
-        <a href="#" class="logo">
-        </a>
-        <div class="menu">
-          <div class="menu__burger">
-            <div class="burger">
-              <div class="burger__line burger__line--top"></div>
-              <div class="burger__line burger__line--bottom"></div>
+        <div class="header-container">
+          <a href="#" class="logo">
+          </a>
+          <div class="menu">
+            <div class="menu__burger">
+              <div class="burger">
+                <div class="burger__line burger__line--top"></div>
+                <div class="burger__line burger__line--bottom"></div>
+              </div>
             </div>
           </div>
         </div>
       </header>
-      <nav class="aside-pagination">
-        <div class="indicator"></div>
-        <ul>
-          <li data-gotoslide="3" class="gotoslide first goto3 aside-pagination__href is-active">01</li>
-          <li data-gotoslide="4" class="gotoslide goto4 aside-pagination__href">02</li>
-          <li data-gotoslide="5" class="gotoslide goto5 aside-pagination__href">03</li>
-        </ul>
-      </nav>
+      <div class="container container-pagination">
+        <nav class="aside-pagination">
+          <div class="indicator"></div>
+          <ul>
+            <li data-gotoslide="3" class="gotoslide first goto3 aside-pagination__href is-active">01</li>
+            <li data-gotoslide="4" class="gotoslide goto4 aside-pagination__href">02</li>
+            <li data-gotoslide="5" class="gotoslide goto5 aside-pagination__href">03</li>
+          </ul>
+        </nav>
+      </div>
       <div class="sections">
         <section data-slide="1" class="section is-active slide slide1 slide-intro main-slider-section home-slide--intro">
           <!--<h1 class="text1 title">Strong creative solutions.</h1>-->
@@ -41,7 +45,7 @@
             <div class="row no-gutters justify-content-center align-items-center">
               <div class="centered">
                 <!--<h1 id="text1" class="title--title2 text1 title"> Strong creative  <br> solutions<span class="line-orange">.</span></span></h1>-->
-                <h1 class="title--title2 text1 title" aria-label="We make ">
+                <h1 class="title--title2 text1 title">
                   <div class="char char-slide1 char-letter-spacing">S</div>
                   <div class="char char-slide1 char-letter-spacing">t</div>
                   <div class="char char-slide1 char-letter-spacing">r</div>
@@ -61,26 +65,36 @@
                       <div class="char char-slide1 ">e</div>
                     </div>
                     <div class="word-2">
-                      <div class="char char-slide2">c</div>
-                      <div class="char char-slide2">r</div>
-                      <div class="char char-slide2">e</div>
-                      <div class="char char-slide2">a</div>
-                      <div class="char char-slide2">t</div>
-                      <div class="char char-slide2">i</div>
-                      <div class="char char-slide2">v</div>
-                      <div class="char char-slide2">e</div>
-                      <div class="char char-slide2">2</div>
+                      <div class="char">c</div>
+                      <div class="char">r</div>
+                      <div class="char">e</div>
+                      <div class="char">a</div>
+                      <div class="char">t</div>
+                      <div class="char">i</div>
+                      <div class="char">v</div>
+                      <div class="char">e</div>
+                      <div class="char">2</div>
                     </div>
                     <div class="word-3">
-                      <div class="char char-slide3 ">c</div>
-                      <div class="char char-slide3 ">r</div>
-                      <div class="char char-slide3 ">e</div>
-                      <div class="char char-slide3 ">a</div>
-                      <div class="char char-slide3 ">t</div>
-                      <div class="char char-slide3 ">i</div>
-                      <div class="char char-slide3 ">v</div>
-                      <div class="char char-slide3 ">e</div>
-                      <div class="char char-slide3 ">3</div>
+                      <div class="char">c</div>
+                      <div class="char ">r</div>
+                      <div class="char ">e</div>
+                      <div class="char ">a</div>
+                      <div class="char ">t</div>
+                      <div class="char ">i</div>
+                      <div class="char ">v</div>
+                      <div class="char ">e</div>
+                      <div class="char ">3</div>
+                    </div>
+                    <div class="word-4">
+                      <div class="char ">c</div>
+                      <div class="char ">r</div>
+                      <div class="char">e</div>
+                      <div class="char">a</div>
+                      <div class="char">t</div>
+                      <div class="char">i</div>
+                      <div class="char">v</div>
+                      <div class="char ">e</div>
                     </div>
                   </div>
                   <br>
@@ -152,7 +166,7 @@
             <div class="letter creative--e2 creative">
               <svg viewBox="0 0 41 117">
                 <polygon fill="#000000" fill-rule="nonzero" opacity="0.056594" points="40.9 76.45 40.9 86.8 0.85 86.8 0.85 30.1 40 30.1 40 40.45 11.65 40.45 11.65 52.6 37.75 52.6 37.75 62.95 11.65 62.95 11.65 76.45"></polygon>
-                <path d="M6.5,30 L6.5,86.8" class="linea_e2" stroke="#FFD753" stroke-width="11" data-svg-origin="6.5 30" transform="matrix(1,0,0,1,0,0)"></path>
+                <!--<path d="M6.5,30 L6.5,86.8" class="linea_e2" stroke="#FFD753" stroke-width="11" data-svg-origin="6.5 30" transform="matrix(1,0,0,1,0,0)"></path>-->
               </svg>
             </div>
           </div>
@@ -161,9 +175,11 @@
           <div class="container">
             <div class="row justify-content-between">
               <div class="col-md-6">
-                <img srcset="build/img/img-about@1x.png, build/img/img-about@2x.png 2x" src="build/img/img-about@1x.png" alt="">
+                <div class="about-section__img">
+                  <img srcset="build/img/img-about@1x.png, build/img/img-about@2x.png 2x" src="build/img/img-about@1x.png" alt="">
+                </div>
               </div>
-              <div class="col-md-5 col-md-offset-1">
+              <div class="col-md-5 col-md-offset-1 ml-md-auto">
                 <div class="about">
                   <div class="line-orange"></div>
                   <h3 class="about__title">We help your business grow</h3>
@@ -175,33 +191,35 @@
           </div>
         </section>
         <section data-slide="3" data-slider-inside="3" class="section slide slide3  slider-about-section">
-          <div class="home-slide main-slide__item is-active">
+          <div class="home-slide main-slide__item">
             <div class="container">
               <div class="row justify-content-between">
-                <div class="col-md-7">
+                <div class="col-md-5 offset-md-1 col-lg-5 offset-lg-1">
                   <div class="slide-left">
-                    <h3 class="main-slide__title" data-stagger>Creation</h3>
-                    <p class="main-slide__txt" data-stagger>We are specialize in market- and demand-oriented strategies with experience in: go-to-market strategy, shop systems, online marketing and conversion rate optimisation.</p>
-                    <ul class="inner-pagination">
-                      <li class="inner-pagination__item inner-slide3-block1" data-stagger>
-                        <span class="inner-pagination__number">01 /</span>
-                        <span class="inner-pagination__txt">Concept <span class="inner-pagination__line"></span></span>
-                      </li>
-                      <li class="inner-pagination__item inner-slide3-block2" data-stagger>
-                        <span class="inner-pagination__number">02 /</span>
-                        <span class="inner-pagination__txt">Selection of Service <span class="inner-pagination__line"></span></span>
-                      </li>
-                      <li class="inner-pagination__item inner-slide3-block3" data-stagger>
-                        <span class="inner-pagination__number">03 /</span>
-                        <span class="inner-pagination__txt">Final Optimization <span class="inner-pagination__line"></span></span>
-                      </li>
-                    </ul>
-                    <button class="play button button--primary" data-stagger>Read more</button>
+                    <h3 class="main-slide__title">Creation</h3>
+                    <div class="slide-content">
+                      <p class="main-slide__txt">We create and operate high performing websites focused on showcasing your product or service. You can turn to us for marketing and technology know-how. </p>
+                      <ul class="inner-pagination">
+                        <li class="inner-pagination__item inner-slide3-block1">
+                          <span class="inner-pagination__number">01 /</span>
+                          <span class="inner-pagination__txt">Concept <span class="inner-pagination__line"></span></span>
+                        </li>
+                        <li class="inner-pagination__item inner-slide3-block2">
+                          <span class="inner-pagination__number">02 /</span>
+                          <span class="inner-pagination__txt">Selection of Service <span class="inner-pagination__line"></span></span>
+                        </li>
+                        <li class="inner-pagination__item inner-slide3-block3">
+                          <span class="inner-pagination__number">03 /</span>
+                          <span class="inner-pagination__txt">Final Optimization <span class="inner-pagination__line"></span></span>
+                        </li>
+                      </ul>
+                      <button class="button button--primary">Read more</button>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
                   <div class="centered-block">
-                    <img data-stagger class="main-slide__img" srcset="build/img/img-creativity@1x.png, build/img/img-creativity@2x.png 2x" src="build/img/img-creativity@1x.png" alt="">
+                    <img class="main-slide__img" srcset="build/img/img-creativity@1x.png, build/img/img-creativity@2x.png 2x" src="/img/img-creativity@1x.png" alt="">
                   </div>
                 </div>
               </div>
@@ -212,30 +230,18 @@
           <div class="home-slide main-slide__item">
             <div class="container">
               <div class="row justify-content-between">
-                <div class="col-md-7">
+                <div class="col-md-5 offset-md-1 col-lg-5 offset-lg-1">
                   <div class="slide-left">
-                    <h3 class="main-slide__title" data-stagger>Consulting</h3>
-                    <p class="main-slide__txt" data-stagger>We are specialize in market- and demand-oriented strategies with experience in: go-to-market strategy, shop systems, online marketing and conversion rate optimisation.</p>
-                    <ul class="inner-pagination">
-                      <li class="inner-pagination__item inner-slide4-block1" data-stagger>
-                        <span class="inner-pagination__number inner-slide4-block1">01 /</span>
-                        <span class="inner-pagination__txt">Concept <span class="inner-pagination__line"></span></span>
-                      </li>
-                      <li class="inner-pagination__item inner-slide4-block2" data-stagger>
-                        <span class="inner-pagination__number">02 /</span>
-                        <span class="inner-pagination__txt">Selection of Service <span class="inner-pagination__line"></span></span>
-                      </li>
-                      <li class="inner-pagination__item inner-slide4-block3" data-stagger>
-                        <span class="inner-pagination__number">03 /</span>
-                        <span class="inner-pagination__txt">Final Optimization <span class="inner-pagination__line"></span></span>
-                      </li>
-                    </ul>
-                    <button data-stagger class="button button--primary play">Read more</button>
+                    <h3 class="main-slide__title">Investment</h3>
+                    <div class="slide-content">
+                      <p class="main-slide__txt">We partner with passionate B2C entrepreneurs to bring them to the next stage of commercial success with our investments.</p>
+                      <button class="button button--primary">Read more</button>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
                   <div class="centered-block">
-                    <img data-stagger class="main-slide__img" srcset="build/img/img-consulting@1x.png, build/img/img-consulting@2x.png 2x" src="build/img/img-consulting@1x.png" alt="">
+                    <img class="main-slide__img" srcset="build/img/img-consulting@1x.png, build/img/img-consulting@2x.png 2x" src="build/img/img-consulting@1x.png" alt="">
                   </div>
                 </div>
               </div>
@@ -246,30 +252,18 @@
           <div class="home-slide main-slide__item">
             <div class="container">
               <div class="row justify-content-between">
-                <div class="col-md-7">
+                <div class="col-md-5 offset-md-1 col-lg-5 offset-lg-1">
                   <div class="slide-left">
                     <h3 class="main-slide__title" data-stagger>Creation</h3>
-                    <p class="main-slide__txt" data-stagger>We are specialize in market- and demand-oriented strategies with experience in: go-to-market strategy, shop systems, online marketing and conversion rate optimisation.</p>
-                    <ul class="inner-pagination">
-                      <li class="inner-pagination__item inner-slide5-block1 " data-stagger>
-                        <span class="inner-pagination__number">01 /</span>
-                        <span class="inner-pagination__txt">Concept <span class="inner-pagination__line"></span></span>
-                      </li>
-                      <li class="inner-pagination__item inner-slide5-block2" data-stagger>
-                        <span class="inner-pagination__number">02 /</span>
-                        <span class="inner-pagination__txt">Selection of Service <span class="inner-pagination__line"></span></span>
-                      </li>
-                      <li class="inner-pagination__item inner-slide5-block3" data-stagger>
-                        <span class="inner-pagination__number">03 /</span>
-                        <span class="inner-pagination__txt">Final Optimization <span class="inner-pagination__line"></span></span>
-                      </li>
-                    </ul>
-                    <button class="button button--primary play" data-stagger>Read more</button>
+                    <div class="slide-content">
+                      <p class="main-slide__txt" data-stagger>We are specialize in market- and demand-oriented strategies with experience in: go-to-market strategy, shop systems, online marketing and conversion rate optimisation.</p>
+                      <button class="button button--primary">Read more</button>
+                    </div>
                   </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
                   <div class="centered-block">
-                    <img data-stagger class="main-slide__img" srcset="build/img/img-investment@1x.png, build/img/img-investment@2x.png 2x" src="build/img/img-investment@1x.png" alt="">
+                    <img class="main-slide__img" srcset="/img/img-investment@1x.png, /img/img-investment@2x.png 2x" src="/img/img-investment@1x.png" alt="">
                   </div>
                 </div>
               </div>
@@ -286,22 +280,24 @@
         </section>
         <section data-slide="7" class="section slide slide7 footer-section">
           <div class="footer-header-bg"></div>
-          <div class="row-flex">
-            <div class="col-50">
-              <div class="location">
-                <h4 class="location__title">Location <span class="line-white"></span></h4>
-                <address class="location__txt">Funkenburgstraße </address>
-                <address class="location__txt">17 04105 Leipzig </address>
+          <div class="container">
+            <div class="row row-flex">
+              <div class="col-md-5">
+                <div class="location">
+                  <h4 class="location__title">Location <span class="line-white"></span></h4>
+                  <address class="location__txt">Funkenburgstraße 17  </address>
+                  <address class="location__txt"> 04105 Leipzig </address>
+                </div>
               </div>
-            </div>
-            <div class="col-50">
-              <div class="map">
+              <div class="col-md-7">
+                <div class="map">
+                </div>
               </div>
             </div>
           </div>
           <footer class="footer">
             <div class="container">
-              <div class="row align-items-end">
+              <div class="row justify-content-between align-items-center">
                 <div class="col-md-6">
                   <p class="footer__txt">© 2018 Nerio GmbH</p>
                 </div>

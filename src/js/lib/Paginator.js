@@ -27,7 +27,6 @@ export default class Paginator {
       self.canGo = false;
 
       PubSub.publish( 'gotoSlide', {from: self.activeSlide,to:newslide,direction: direction} );
-      //console.log('activeSlide newslide direction',self.activeSlide, newslide , direction )
 
       console.log('newslide',newslide)
       if( newslide>=3 && newslide<=5) {
@@ -35,8 +34,6 @@ export default class Paginator {
         var newslideInside = self.activeSliderInside + direction;//slider-inside 2
         PubSub.publish( 'gotoSlide.slide', {from: self.activeSlide, to:newslide, direction: direction } );
       }
-
-      //console.log('activeSlide newslide direction',self.activeSlide, newslide , direction )
 
       self.activeSlide = newslide;
       setTimeout(function() {
@@ -46,7 +43,6 @@ export default class Paginator {
   }
 
   clickEvents() {  //generate event when click on pagination - do pagination
-
 
     var self = this;
 
