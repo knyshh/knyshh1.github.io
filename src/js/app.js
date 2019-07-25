@@ -142,6 +142,8 @@ $(window).on('load', function () {
       .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
       .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
         {backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+      .fromTo($overlay,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+
     $('body').removeClass('is-active-popup')
   })
 
