@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html class="mainbody">
 <head>
   <meta charset="utf-8" />
   <title>Index page</title>
@@ -9,12 +9,16 @@
   <meta name="format-detection" content="telephone=no" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
+
+
   <link rel="stylesheet" media="all" href="css/app.css" />
 </head>
-<body>
+<body class="mainbody">
 <!-- BEGIN content -->
 <div class="container-app">
-  <header class="header">
+  <header class="header header--main">
     <div class="header-container">
       <a href="#" class="logo">
       </a>
@@ -33,6 +37,7 @@
 
   <div class="container container-pagination">
 
+
     <nav class="aside-pagination">
       <div class="indicator"></div>
       <ul>
@@ -43,6 +48,50 @@
     </nav>
 
   </div>
+
+
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpbmFrbnlzaCIsImEiOiJjanllZXN5aWIwMDQwM2RyemUyd241NDB5In0.fn9Mg4LjGVM30Z_t2irkXQ';
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/mapbox/dark-v10', //https://maps.targomo.com/ set style
+      center: [ 12.36148, 51.34515],
+      zoom: 12
+    });
+
+    <!--map.on('load', function() {-->
+      <!--map.loadImage('../img/ic-location.png', function(error, image) {-->
+        <!--if (error) throw error;-->
+        <!--map.addImage('cat', image);-->
+        <!--map.addLayer({-->
+          <!--"id": "points",-->
+          <!--"type": "symbol",-->
+          <!--"source": {-->
+            <!--"type": "geojson",-->
+            <!--"data": {-->
+              <!--"type": "FeatureCollection",-->
+              <!--"features": [{-->
+                <!--"type": "Feature",-->
+                <!--"geometry": {-->
+                  <!--"type": "Point",-->
+                  <!--"coordinates": [12.36148,51.34515]-->
+                <!--}-->
+              <!--}]-->
+            <!--}-->
+          <!--},-->
+          <!--"layout": {-->
+            <!--"icon-image": "cat",-->
+            <!--"icon-size": 0.9-->
+          <!--}-->
+        <!--});-->
+      <!--});-->
+    <!--});-->
+  </script>
+
+
+
+
 
 
 
@@ -216,7 +265,7 @@
                 <div class="line-orange"></div>
                 <h3 class="about__title">We help your business grow</h3>
                 <p class="about__txt"> Nerio GmbH was founded in 2014 with a passion for e-commerce. E-commerce is our specialty, helping to grow your online presence and profits. </p>
-                <button class="button button--primary">About us</button>
+                <a href="/aboutus.html" class="button button--primary" >About us</a>
               </div>
             </div>
           </div>
@@ -258,7 +307,7 @@
                           </li>
                         </ul>
 
-                        <button class="button button--primary">Read more</button>
+                        <a href="/whatwedo.html" class="button button--primary">Read more</a>
 
                     </div>
 
@@ -283,14 +332,15 @@
                     <h3 class="main-slide__title">Investment</h3>
                     <div class="slide-content">
                       <p class="main-slide__txt">We partner with passionate B2C entrepreneurs to bring them to the next stage of commercial success with our investments.</p>
-                      <button class="button button--primary">Read more</button>
+                      <a href="/whatwedo.html" class="button button--primary">Read more</a>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
                   <div class="centered-block">
-                    <img class="main-slide__img" srcset="/img/img-consulting@1x.png, /img/img-consulting@2x.png 2x" src="/img/img-consulting@1x.png" alt="">
+                    <img class="main-slide__img" srcset="/img/img-investment@1x.png, /img/img-investment@2x.png 2x" src="/img/img-investment@1x.png" alt="">
+
                   </div>
                 </div>
               </div>
@@ -308,14 +358,14 @@
                     <h3 class="main-slide__title">Creation</h3>
                     <div class="slide-content">
                       <p class="main-slide__txt">We are specialize in market- and demand-oriented strategies with experience in: go-to-market strategy, shop systems, online marketing and conversion rate optimisation.</p>
-                      <button class="button button--primary" >Read more</button>
+                      <a href="/whatwedo.html" class="button button--primary" >Read more</a>
                     </div>
                   </div>
 
                 </div>
                 <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
                   <div class="centered-block">
-                    <img class="main-slide__img" srcset="/img/img-investment@1x.png, /img/img-investment@2x.png 2x" src="/img/img-investment@1x.png" alt="">
+                    <img class="main-slide__img" srcset="/img/img-consulting@1x.png, /img/img-consulting@2x.png 2x" src="/img/img-consulting@1x.png" alt="">
 
                   </div>
                 </div>
@@ -328,18 +378,18 @@
         <div class="contact-us__container-center">
           <div class="contact-us__animation">
             <h4 class="contact-us__title">Have a project in mind?</h4>
-            <button class="button button--secondary">Contact us</button>
+            <button class="button button--secondary js-show-popup">Contact us</button>
           </div>
         </div>
       </section>
 
-      <section data-slide="7" class="section slide slide7 footer-section">
+      <section data-slide="7" class="section slide slide7 footer-section footer-section--main">
         <div class="footer-header-bg"></div>
 
         <div class="container-fluid no-gutters">
           <div class="row row-flex no-gutters">
             <div class="col-md-4 offset-md-1 col-lg-4 offset-lg-1 footer-section__left">
-              <div class="location">
+              <div class="location location--main">
                 <h4 class="location__title">Location <span class="line-white"></span></h4>
                 <address class="location__txt">Funkenburgstraße 17  </address>
                 <address class="location__txt"> 04105 Leipzig </address>
@@ -347,6 +397,10 @@
             </div>
             <div class="col-md-7 footer-section__right no-gutters">
               <div class="map">
+
+                <div id='map'>
+                  <!--<iframe width="500" height="300" src="https://api.maptiler.com/maps/1b064521-e003-4a65-87e8-a7351753e0d2/?key=Z9crAO6V4JLx5GFv8I2u#10.78/51.34377/12.39202"></iframe>-->
+                </div>
                 <img class="map__img" src="/img/map.png" alt="">
                 <div class="map__marker">
                   <svg width="28" height="40" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -369,8 +423,8 @@
                   <div class="col-md-6">
                     <nav class="footer__nav">
                       <ul>
-                        <li class="footer__item"><a href="#">Legal</a></li>
-                        <li class="footer__item"><a href="#">Privacy</a></li>
+                        <li class="footer__item"><a href="/legal.html">Legal</a></li>
+                        <li class="footer__item"><a href="/policy.html">Privacy</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -387,28 +441,127 @@
       <nav class="navigation">
           <h4 data-nav class="navigation__title">Menu<span class="orange-txt">.</span></h4>
           <ul class="navigation__list">
-            <li data-nav class="navigation__item"><a class="navigation__href" href="#">Home</a></li>
-            <li data-nav class="navigation__item"><a class="navigation__href" href="#">About us</a></li>
-            <li data-nav class="navigation__item"><a class="navigation__href" href="#">What we do</a></li>
-            <li data-nav class="navigation__item"><a class="navigation__href" href="#">Contact</a></li>
+            <li data-nav class="navigation__item"><a class="navigation__href" href="index.html">Home</a></li>
+            <li data-nav class="navigation__item"><a class="navigation__href" href="/aboutus.html">About us</a></li>
+            <li data-nav class="navigation__item"><a class="navigation__href" href="/whatwedo.html">What we do</a></li>
+            <li id="contacts" data-nav class="navigation__item"><a class="navigation__href" href="">Contact</a></li>
           </ul>
 
         </nav>
+
+      <!--//popup-->
+      <section class="overlay2"></section>
+      <div class="popup contact-popup">
+        <div class="popup__close">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 1L1 19" stroke="black" stroke-opacity="0.3"/>
+            <path d="M19 19L1 0.999999" stroke="black" stroke-opacity="0.3"/>
+          </svg>
+        </div>
+        <h3 class="popup__title">Let's talk</h3>
+        <form data-parsley-validate class="form" name="form-contact" id="form-contact" data-parsley-validate>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form__control">
+                  <input  name="" required
+                          class="form__input"
+                          type="name"
+                          data-msg-required="The field is required."
+                          data-parsley-errors-container=".error-form1"
+                  >
+                  <label class="form__label">
+                    <span class="form__required">*</span>Name
+                  </label>
+
+                  <div  class="error error-form1"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form__control">
+
+                  <input class="form__input" required name=""
+                         data-msg-required="The field is required."
+                         data-parsley-errors-container=".error-form2"
+                         type="password">
+                  <label class="form__label">
+                    <span class="form__required">*</span>Password
+                  </label>
+
+                  <div  class="error error-form2">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form__control">
+
+              <input class="form__input" name="" type="text">
+              <label class="form__label">Describe your project</label>
+            </div>
+
+            <div class="form__control">
+
+              <input class="form__input" required name=""
+                     data-msg-required="The field is required."
+                     data-parsley-errors-container=".error-form3"
+                     type="text">
+
+              <label class="form__label">
+                <span class="form__required">*</span>Message
+              </label>
+
+
+              <div  class="error error-form3">
+              </div>
+            </div>
+
+            <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal
+              data will be processed by Nerio GmbH. Please read our <a href="#">Privacy
+                Notice</a> for more information. </p>
+
+            <p>
+              <label class="checkbox">
+                <input
+                  data-parsley-required-message=""
+                  data-parsley-checkmin="1"
+                  data-parsley-error-message="You should agree with Privacy Policy"
+                  name="policy[]" required type="checkbox" />
+                <span>I am informed about processing of my personal
+                  data and the right to withdraw my consent </span>
+              </label>
+            </p>
+
+            </label>
+
+            <div class="form__send">
+              <button class="button button--secondary " type="submit">Send message</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+
 
 
     </div>
   </div>
   <!---->
-  <!--<p>header</p>
--->
-  <!---->
-  <!--
-<svg class="icon icon-facebook"><use xlink:href="img/sprite.svg#icon-facebook"></use></svg>
--->
+
 </div>
+
 <!-- END content -->
 <!-- BEGIN scripts -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.5/fullpage.min.js"></script>
+
+
+
+
+<!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.js'></script>-->
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise"></script>
+<script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v5.3.0/build/ol.js"></script>
+<script src="https://unpkg.com/ol-mapbox-style@3.6.2/dist/olms.js"></script>
+
+
 <script type="text/javascript" src="js/app.js"></script>
 <!-- END scripts -->
 </body>

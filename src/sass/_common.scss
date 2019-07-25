@@ -24,11 +24,16 @@ body {
     font-size: 14px;
     line-height: 1.4;
     width: 100%;
-    display: -webkit-flex;
-    -webkit-flex-direction: row;
 
+
+
+
+}
+.mainbody {
     overflow: hidden;
     height: 100vh;
+    -webkit-flex-direction: row;
+    display: -webkit-flex;
 }
 html,
 body {
@@ -129,6 +134,8 @@ h1 {
     text-transform: uppercase;
     z-index: 360;
     transition: all 0.3s ease-in;
+    display: inline-block;
+    text-align: center;
 
     &--primary {
         border: 1px solid $orange;
@@ -198,6 +205,11 @@ h1 {
     font-size: 16px;
     line-height: 1.75;
     letter-spacing: normal;
+    color: $default-color;
+}
+.page-txt-small {
+    font-family: $fontDefaultMedium;
+    font-size: 14px;
     color: $default-color;
 }
 .scroll {
@@ -283,6 +295,11 @@ h1 {
     width: 100%;
     height: 100vh;
 }
+.pages {
+    .header {
+        height: 100px;
+    }
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -291,7 +308,12 @@ h1 {
     left: 0;
     top: 0;
     z-index: 405;
-    opacity: 0;
+    border-bottom: 1px solid #ddd;
+    background: $white;
+    &--main {
+        opacity: 0;
+        border-bottom: none;
+    }
 }
 .menu {
     display: inline-block;
@@ -805,6 +827,8 @@ h1 {
 .footer-section {
     background: $orange;
     position: relative;
+    height: 500px;
+
     &__left {
         background: $orange;
     }
@@ -812,10 +836,18 @@ h1 {
         position: relative;
         padding: 0;
     }
+    &--main {
+        height: 100vh;
+    }
 
     webkitClipPath: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
     clipPath: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 
+}
+.pages {
+    .line-white {
+        opacity: 1;
+    }
 }
 .line-white {
     position: absolute;
@@ -850,11 +882,17 @@ h1 {
     opacity: 0;
 }
 .location {
-    padding-top: 75px;
+    padding-top: 100px;
+
+    &--main {
+        padding-top: 75px;
+        .location__title {
+            padding-top: 60px;
+        }
+    }
 
     &__title {
         position: relative;
-        padding-top: 60px;
         font-family: $fontGilroyBold;
         font-size: 50px;
         line-height: 1.2;
@@ -862,6 +900,8 @@ h1 {
         color: $white;
         margin-bottom: 70px;
     }
+
+
     &__txt {
         font-family: $fontDefaultMedium;
         font-size: 16px;
@@ -870,15 +910,24 @@ h1 {
         color: $white;
     }
 }
+.pages {
+    //.map {
+    //    height: 500px;
+    //}
+    .footer-section {
+        height: 600px;
+        overflow: hidden; // ix this
+    }
+}
 
 .map {
     position: absolute;
     width: 100%;
     right: 0;
     top:0;
-    z-index: -1;
+    //z-index: -1;
     background: #767d85;
-    height: 100%;
+
     &__img {
         object-fit: cover;
         //height: 500px;
@@ -906,6 +955,9 @@ h1 {
     width: 100%;
     left: 0;
     bottom: 0;
+    &--txtpages {
+        border-top: 1px solid #ddd;
+    }
 
     &__txt {
         font-family: $fontGilroySemi;
@@ -931,11 +983,18 @@ h1 {
          }
     }
 }
-
+.mainbody {
+    .row-flex {
+        height: 100vh;
+    }
+    .map {
+        z-index: -1;
+        height: 100%;
+    }
+}
 .row-flex {
     display: flex;
     justify-content: space-between;
-    height: 100vh;
 }
 .col-50 {
     display: inline-block;
@@ -943,6 +1002,18 @@ h1 {
 }
 
 .overlay {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background: rgba(0,0,0,0);
+    visibility: hidden;
+}
+
+.overlay2 {
     width: 100%;
     height: 100%;
     top: 0;
@@ -1019,6 +1090,586 @@ h1 {
 
 
 
+
+//legal privacy other pages
+
+.txtcontent {
+    padding-bottom: 100px;
+
+    &__txt {
+        @extend .page-txt;
+        padding-bottom: 22px;
+    }
+    &__p {
+        @extend .page-txt;
+        padding-bottom: 22px;
+        a {
+            text-decoration: underline;
+            font-family: $fontGilroySemi;
+            font-size: inherit;
+            color: $default-color;
+        }
+    }
+    &__title {
+        padding-top: 52px;
+        font-family: $fontGilroyBold;
+        font-size: 50px;
+        padding-bottom: 20px;
+        margin: 0;
+    }
+    &__subtitle {
+        font-family: $fontGilroyBold;
+        font-size: 24px;
+        padding-bottom: 21px;
+        padding-top: 40px;
+    }
+    &__maintitle {
+        font-family: $fontGilroyBold;
+        font-size: 28px;
+        padding-bottom: 0;
+        padding-top: 42px;
+    }
+    .padding0 {
+        padding-top: 0;
+    }
+    &__list {
+        padding: 15px 15px 15px 5px
+
+    }
+    &__item {
+        position: relative;
+        font-size: 16px;
+        padding-bottom: 25px;
+        padding-left: 20px;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            background: $orange;
+        }
+    }
+
+}
+.legal {
+    padding-bottom: 200px;
+    &__block {
+        //padding-bottom: 10px;
+    }
+    &__content {
+
+    }
+    &__title {
+        font-family: $fontGilroyBold;
+        font-size: 50px;
+        padding-bottom: 37px;
+        margin: 0;
+        padding-top: 52px;
+    }
+}
+
+.page-content {
+    padding-top: 100px;
+}
+
+.aside-form {
+    width: 340px;
+    height: 400px;
+    box-shadow: 0 4px 50px 0 rgba(216, 216, 235, 0.5);
+    background-color: #ffffff;
+    padding: 64px 65px 0 65px;
+    text-align: center;
+    transition: all 0.3s ease-in;
+    &:hover {
+        box-shadow: 0 4px 50px 0 rgba(216, 216, 235, 0.75);
+    }
+    &__title {
+        font-family: $fontGilroyBold;
+        font-size: 28px;
+        color: $default-color;
+        margin-bottom: 115px;
+        letter-spacing: 0.5px;
+    }
+}
+.strong-padding {
+    padding-bottom: 15px;
+}
+.aside-info {
+    width: 360px;
+    max-width: 360px;
+    background: $grey;
+    padding: 40px 95px 40px 40px ;
+    font-size: 14px;
+
+    &__block {
+        padding-bottom: 34px;
+    }
+    &__line {
+        display: inline-block;
+        width: 100%;
+         a {
+             text-decoration: none;
+             font-size: inherit;
+             display: inline-block;
+             color: $default-color;
+         }
+    }
+
+    &__txt {
+        @extend .page-txt-small;
+        padding-bottom: 15px;
+        strong {
+            font-size: inherit;
+            font-family: $fontGilroyBold;
+            display: inline-block;
+            width: 100%;
+        }
+
+    }
+    &__title {
+        font-family: $fontGilroyBold;
+        font-size: 24px;
+        padding-bottom: 31px;
+    }
+}
+
+
+//aboutus
+.aboutus {
+    position: relative;
+    padding-bottom: 116px;
+    position: relative;
+
+    &__wrapper {
+        padding-left: 70px;
+    }
+    &__title {
+        @extend .page-title;
+        margin-bottom: 68px;
+        padding-left: 70px;
+    }
+    &__content {
+
+    }
+    &__txt {
+        @extend .page-txt;
+        padding-bottom: 20px;
+    }
+
+    &__linebg1 {
+        position: absolute;
+        top: -120px;
+        left: -50px;
+    }
+    &__linebg2 {
+
+        position: absolute;
+        bottom: -210px;
+        left: 0;
+
+    }
+}
+.linebg3 {
+    position: absolute;
+    top: 301px;
+    left: 35px;
+
+}
+
+.whatwedo {
+
+    padding-bottom: 200px;
+    position: relative;
+
+    .container {
+        position: relative;
+    }
+
+    &__title {
+        @extend .page-title;
+    }
+    &__block {
+        padding-bottom: 35px;
+    }
+
+    &__subtitle {
+        font-size: 36px;
+        font-family: $fontGilroyBold;
+        padding-bottom: 20px;
+
+    }
+    &__txt {
+        @extend .page-txt;
+        padding-bottom: 20px;
+    }
+    &__linebg1 {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    &__linebg2 {
+        position: absolute;
+        right: 0;
+        bottom: -10px;
+    }
+    &__linebg3 {
+        position: absolute;
+        right: 0;
+        top: 280px;
+    }
+    &__linebg4 {
+        position: absolute;
+        top: -122px;
+        left: 50%;
+        margin-left: -88px;
+    }
+    &__linebg5 {
+        position: absolute;
+        left: 100px;
+        top: 550px;
+    }
+    .aside-form {
+        margin-top: 20px;
+    }
+}
+.policy {
+    padding-bottom: 150px;
+    &__title {
+        font-family: $fontGilroyBold;
+        font-size: 50px;
+        margin: 0;
+        padding-top: 52px;
+        padding-bottom: 56px;
+    }
+    &__block {
+        padding-bottom: 40px;
+    }
+}
+
+//forms
+
+.popup {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    padding: 4%;
+    max-width: 1000px;
+    max-height: 700px;
+    left: 50%;
+    top: 50px;
+    z-index: 410;
+    margin-left: -500px;
+    //padding: 70px 80px;
+    &__title {
+       @extend .page-title;
+
+    }
+    &__close {
+        position: absolute;
+        z-index: 405;
+        top: 40px;
+        right: 40px;
+        cursor: pointer;
+    }
+
+    @media (min-width: 1200px) {
+        //height: calc(100vh - 100px);
+        padding-bottom: 40px;
+    }
+    @media (min-width: 1440px) {
+        padding-bottom: 70px;
+    }
+
+    @media (min-width: 1440px) and (min-height: 800px) {
+            padding-bottom: 40px;
+    }
+
+    @media (min-height: 800px) {
+        //&__title {
+        //    padding-bottom: 70px;
+        //}
+    }
+    background: $white;
+    box-shadow: 0px 4px 50px rgba(216, 216, 235, 0.5);
+
+
+}
+
+@keyframes UnderlineRemove {
+    0% {
+        transform: translateX(-50%) scaleX(1);
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        transform: translateX(-50%) scaleX(1);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes UnderlineAdd {
+    0% {
+        transform: translateX(-50%) scaleX(0);
+    }
+    to {
+        transform: translateX(-50%) scaleX(1);
+    }
+}
+
+.checkbox {
+    display: inline-flex;
+    cursor: pointer;
+    position: relative;
+}
+.checkbox > span {
+    padding-left: 7px;
+    position: relative;
+    top: 3px;
+}
+.checkbox > input {
+    width: 18px;
+    height: 18px;
+    margin: 2px;
+
+    /* remove default browser styling */
+    -webkit-appearance: none;
+    -mox-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+    /* custom styling */
+    background-color: $white;
+    border: 1px solid #000000;
+    cursor: pointer;
+    outline: none;
+
+    transition-duration: 0.3s;
+}
+
+//.checkbox > input:checked {
+//}
+
+/* style checkmark symbol */
+.checkbox > input:checked + span::before {
+    color: $default-color;
+    content: "\2713";
+    text-align: center;
+
+    display: block;
+    position: absolute;
+    left: -16px;
+    top: -1px;
+}
+.parsley-errors-list {
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    z-index: 2;
+}
+.parsley-required {
+    color: $orange;
+}
+
+#parsley-id-multiple-policy {
+    position: static;
+    color: $orange;
+    padding-top: 5px;
+}
+
+
+.form {
+    max-width: 90%;
+
+    @media (min-width: 1440px) and (min-height: 800px) {
+        max-width: 80%;
+    }
+    //max-width: 770px;
+
+    &__input,
+    &__textarea {
+        border: none;
+        margin: 0;
+        line-height: 30px;
+        font-size: 16px;
+        font-family: $fontGilroySemi;
+
+        padding: 36px 0 16px;
+        background: #FFF;
+        display: block;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        width: 100%;
+        border: none;
+
+        &::-webkit-input-placeholder {
+            color: $default-color;
+        }
+        &::-moz-placeholder {
+            color: $default-color;
+        }
+        &:-ms-input-placeholder {
+            color: $default-color;
+        }
+        &:-moz-placeholder {
+            color: $default-color;
+        }
+
+        &.has-value input +.form__label {
+            top: 16px;
+            font-size: 12px;
+        }
+
+        &:focus + .form__label,
+        &.has-focus input .form__label {
+            color: $orange;
+            top: 16px;
+            font-size: 12px;
+            &::after {
+                visibility: visible;
+                animation: UnderlineAdd .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+
+    }
+    &__txt {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        font-size: 14px;
+        font-family: $fontDefaultMedium;
+        a {
+            color: $default-color;
+            text-decoration: underline;
+        }
+    }
+    &__textarea {
+        resize: vertical;
+        height: 82px;
+    }
+    &__send {
+        text-align: center;
+        margin-top: 52px;
+
+        @media (min-width: 1440px) and (min-height: 800px) {
+            margin-top: 82px;
+        }
+    }
+    &__required {
+        color: $orange;
+        font-size: 16px;
+        font-family: $fontGilroySemi;
+        padding-right: 5px;
+    }
+
+    &__label {
+        bottom: 0;
+        color: $default-color;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        top: 36px;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        // === purple underline
+        &::after {
+            visibility: hidden;
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            border-radius: 2px;
+            background-color: $orange;
+            transform: translateX(-50%) scaleX(0);
+            animation: UnderlineRemove .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            z-index: 2;
+        }
+
+    }
+    &__control {
+        position: relative;
+        margin-bottom: 10px;
+
+        // === grey underline
+
+
+
+        &::after {
+            display: block;
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.12);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        &.has-value input + .form__label{
+            top: 16px;
+            font-size: 12px;
+        }
+
+        input:focus + .form__label,
+        &.has-focus input + .form__label {
+            color: $orange;
+            top: 16px;
+            font-size: 12px;
+            &::after {
+                visibility: visible;
+                animation: UnderlineAdd .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+
+        input:focus +.form_label,
+        input:active .form_label {
+            color: $orange;
+            top: 16px;
+            font-size: 12px;
+            &::after {
+                visibility: visible;
+                animation: UnderlineAdd .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+
+        input:focus +.form_label,
+        &.has-focus input + .form__label {
+            color: $orange;
+            top: 16px;
+            font-size: 12px;
+            &::after {
+                visibility: visible;
+                animation: UnderlineAdd .3s cubic-bezier(0.4, 0.0, 0.2, 1);
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+
+    }
+}
+.checkbox.parsley-error input{
+    border: 1px solid $orange;
+
+}
 
 
 

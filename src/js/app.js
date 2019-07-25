@@ -4,10 +4,150 @@ import { TimelineMax,TimelineLite, TweenLite, Power4, Power1, Power3, Back, Expo
 import Animator from './lib/Animator';
 import Paginator from './lib/Paginator';
 import  './lib/navi';
+import "parsleyjs";
+
 
 const p = new Paginator();
 
 $(window).on('load', function () {
+
+    // .validation persey.js
+  $(".form__control").on('click focus keypress', function() {
+    $(this).addClass("has-focus");
+    if ($(this).val()) {
+      $(this).addClass("has-value");
+    } else {
+      $(this).removeClass("has-value");
+    }
+  });
+
+  $(".form__control input").on('blur', function() {
+    $(this).parent().removeClass("has-focus");
+    if ($(this).val()) {
+      $(this).parent().addClass("has-value");
+    } else {
+      $(this).parent().removeClass("has-value");
+    }
+  });
+
+  $('#form-contact').parsley();
+
+  // animation side navigation
+  const $iconMenu = $('.menu__burger');
+  const $iconMenuLines = $('.burger');
+  const $overlay = $('.overlay')
+  const $overlayPopup = $('.overlay2')
+  const $contactsPopup = $('.contact-popup')
+  const $navigation= $('.navigation')
+  const navigationElements= $('.navigation').find('[data-nav]');
+  const $contactsLink = $('#contacts');
+  const $popupClose = $('.popup__close');
+  const $btncontacts = $('.js-show-popup');
+
+  const tlMenu= new TimelineLite();
+  const tlContacts = new TimelineLite();
+
+  // showmwnu
+
+  $iconMenu.on('click',()=> {
+
+    $iconMenu.toggleClass('is-active')
+    $iconMenuLines.toggleClass('is-active')
+
+    if($iconMenu.hasClass('is-active')) {
+      tlMenu
+        .fromTo($overlay,0.5,{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},  {backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut})
+        .fromTo($navigation,0.6,{x: '700px'}, {x: '0', ease: Power4.easeOut}, '-=0.2')
+        .staggerFromTo(navigationElements,0.2,{x: 80,opacity:0},{x:0,opacity:1},0.1,'-=.5')
+
+    }
+    else {
+      tlMenu
+        .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
+        .fromTo($navigation,0.45,{x: '0', ease: Power4.easeOut},{x: '700px'}, '-=0.2')
+        .fromTo($overlay,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+
+    }
+
+
+  });
+
+  // show contacts
+  $contactsLink.on('click',(e)=> {
+
+    e.preventDefault();
+
+    $('body').toggleClass('is-active-popup')
+    $iconMenuLines.toggleClass('is-active')
+
+    // закрываем текущее
+
+    tlMenu
+      .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
+      .fromTo($navigation,0.45,{x: '0', ease: Power4.easeOut},{x: '700px'}, '-=0.2')
+      .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+
+    // $iconMenu.removeClass('is-active');
+// показываем другое
+    if( $('body').hasClass('is-active-popup')) {
+      tlContacts
+        .fromTo($overlayPopup,0.5,{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},
+          {backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut})
+        .fromTo($contactsPopup,0.6,{opacity: 0, visibility:'hidden'}, { visibility:'visible', opacity: 1, ease: Power4.easeOut}, '-=0.2')
+        // .staggerFromTo(navigationElements,0.2,{x: 80,opacity:0},{x:0,opacity:1},0.1,'-=.5')
+
+    }
+    else {
+      tlContacts
+      // .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
+        .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
+        .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
+          {backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+      // $('body').removeClass('is-active-popup')
+    }
+
+  });
+
+
+  $btncontacts.on('click',()=> {
+
+    $('body').addClass('is-active-popup')
+
+    // $iconMenuLines.toggleClass('is-active')
+
+// показываем другое
+    if( $('body').hasClass('is-active-popup')) {
+      tlContacts
+        .fromTo($overlayPopup,0.5,{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},
+          {backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 405, ease: Power4.easeOut})
+        .fromTo($contactsPopup,0.6,{opacity: 0, visibility:'hidden'}, { visibility:'visible', opacity: 1, ease: Power4.easeOut}, '-=0.2')
+      // .staggerFromTo(navigationElements,0.2,{x: 80,opacity:0},{x:0,opacity:1},0.1,'-=.5')
+
+    }
+    else {
+      tlContacts
+      // .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
+        .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
+        .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
+          {backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+      $('body').removeClass('is-active-popup')
+    }
+
+  });
+
+
+  $popupClose.on('click',()=> {
+    tlContacts
+    // .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
+      .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
+      .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
+        {backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+    $('body').removeClass('is-active-popup')
+  })
+
+
+
+
 
   // slide1
   const tlWords = new TimelineLite({
@@ -107,41 +247,39 @@ $(window).on('load', function () {
 
     .add(tlWordsAnimation)
 
-
+  //
   tlWords.eventCallback("onComplete", function() {
     // tlWords.play()
   });
+  //
 
 
-  // animation side navigation
-  const $iconMenu = $('.menu__burger');
-  const $iconMenuLines = $('.burger');
-  const $overlay = $('.overlay')
-  const $navigation = $('.navigation')
-  const navigationElements= $('.navigation').find('[data-nav]');
 
-  $iconMenu.on('click',()=> {
 
-    $iconMenu.toggleClass('is-active')
-    $iconMenuLines.toggleClass('is-active')
+  // map
 
-    const tlMenu= new TimelineLite();
-
-    if($iconMenu.hasClass('is-active')) {
-      tlMenu
-        .fromTo($overlay,0.5,{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},  {backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut})
-        .fromTo($navigation,0.6,{x: '700px'}, {x: '0', ease: Power4.easeOut}, '-=0.2')
-        .staggerFromTo(navigationElements,0.2,{x: 80,opacity:0},{x:0,opacity:1},0.1,'-=.5')
-
-    }
-    else {
-      tlMenu
-        .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
-        .fromTo($navigation,0.45,{x: '0', ease: Power4.easeOut},{x: '700px'}, '-=0.2')
-        .fromTo($overlay,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
-    }
-
-  });
+//   // Where you want to render the map.
+//   const element = document.getElementById('osm-map');
+//
+// // Height has to be set. You can do this in CSS too.
+//   element.style = 'height:300px;';
+//
+// // Create Leaflet map on map element.
+//   const map = L.map(element);
+//
+// // Add OSM tile leayer to the Leaflet map.
+//   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+//     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+//   }).addTo(map);
+//
+// // Target GPS coordinates.
+//   const target = L.latLng('47.50737', '19.04611');
+//
+// // Set map center to target with zoom 14.
+//   map.setView(target, 14);
+//
+// // Place a marker on the same location.
+//   L.marker(target).addTo(map);
 
 
 

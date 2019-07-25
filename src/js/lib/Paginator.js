@@ -15,7 +15,7 @@ export default class Paginator {
   scrollEvents() {
     var self = this;
 
-    $(window).on('wheel',function(e) {
+    $('.mainbody').on('wheel',function(e) {
 
       if(!self.canGo) return;
       e = e.originalEvent;
