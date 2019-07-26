@@ -2,15 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Index page</title>
+    <title>What we do</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fff" />
     <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
-    <link rel="stylesheet" media="all" href="css/app.css" />
+    <link rel="stylesheet" media="all" href="../build/css/app.css" />
   </head>
   <body>
     <!-- BEGIN content -->
@@ -100,13 +99,7 @@
               </div>
             </div>
             <div class="col-md-7 footer-section__right no-gutters">
-              <div class="map">
-                <img class="map__img" src="/img/map.png" alt="">
-                <div class="map__marker">
-                  <svg width="28" height="40" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.9998 0C7.00317 0 0.666504 5.67167 0.666504 12.67C0.666504 23.075 11.2948 24.175 13.9998 40C16.7048 24.175 27.3332 23.075 27.3332 12.67C27.3332 5.67167 20.9982 0 13.9998 0ZM13.9998 18.3333C11.2382 18.3333 8.99984 16.095 8.99984 13.3333C8.99984 10.5717 11.2365 8.33333 13.9998 8.33333C16.7632 8.33333 18.9998 10.5717 18.9998 13.3333C18.9998 16.095 16.7615 18.3333 13.9998 18.3333Z" fill="#F85B32" />
-                  </svg>
-                </div>
+              <div id="map" class="map">
               </div>
             </div>
           </div>
@@ -120,8 +113,8 @@
               <div class="col-md-6">
                 <nav class="footer__nav">
                   <ul>
-                    <li class="footer__item"><a href="/legal.html">Legal</a></li>
-                    <li class="footer__item"><a href="/policy.html">Privacy</a></li>
+                    <li class="footer__item"><a href="../build/legal.html">Legal</a></li>
+                    <li class="footer__item"><a href="../build/policy.html">Privacy</a></li>
                   </ul>
                 </nav>
               </div>
@@ -133,9 +126,9 @@
       <nav class="navigation">
         <h4 data-nav class="navigation__title">Menu<span class="orange-txt">.</span></h4>
         <ul class="navigation__list">
-          <li data-nav class="navigation__item"><a class="navigation__href" href="index.html">Home</a></li>
-          <li data-nav class="navigation__item"><a class="navigation__href" href="/aboutus.html">About us</a></li>
-          <li data-nav class="navigation__item"><a class="navigation__href" href="/whatwedo.html">What we do</a></li>
+          <li data-nav class="navigation__item"><a class="navigation__href" href="../index.html">Home</a></li>
+          <li data-nav class="navigation__item"><a class="navigation__href" href="../build/aboutus.html">About us</a></li>
+          <li data-nav class="navigation__item"><a class="navigation__href" href="../build//whatwedo.html">What we do</a></li>
           <li id="contacts" data-nav class="navigation__item"><a class="navigation__href" href="">Contact</a></li>
         </ul>
       </nav>
@@ -148,11 +141,15 @@
             <path d="M19 19L1 0.999999" stroke="black" stroke-opacity="0.3" />
           </svg>
         </div>
-        <h3 class="popup__title">Let's talk</h3>
         <form data-parsley-validate class="form" name="form-contact" id="form-contact" data-parsley-validate>
           <div class="container">
-            <div class="row">
-              <div class="col-md-6">
+            <div class="row no-gutters">
+              <h3 class="popup__title">Let's talk</h3>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row no-gutters justify-content-between">
+              <div class="col-48">
                 <div class="form__control">
                   <input name="" required class="form__input" type="name" data-msg-required="The field is required." data-parsley-errors-container=".error-form1">
                   <label class="form__label">
@@ -160,7 +157,7 @@
                   <div class="error error-form1"></div>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-48">
                 <div class="form__control">
                   <input class="form__input" required name="" data-msg-required="The field is required." data-parsley-errors-container=".error-form2" type="password">
                   <label class="form__label">
@@ -181,13 +178,15 @@
               <div class="error error-form3">
               </div>
             </div>
-            <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal data will be processed by Nerio GmbH. Please read our <a href="#">Privacy Notice</a> for more information. </p>
-            <p>
-              <label class="checkbox">
-                <input data-parsley-required-message="" data-parsley-checkmin="1" data-parsley-error-message="You should agree with Privacy Policy" name="policy[]" required type="checkbox" />
-                <span>I am informed about processing of my personal data and the right to withdraw my consent </span>
-              </label>
-            </p>
+            <div class="form__control form__control--last">
+              <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal data will be processed by Nerio GmbH. Please read our <a href="/policy.html">Privacy Notice</a> for more information. </p>
+              <div>
+                <label class="checkbox">
+                  <input data-parsley-required-message="" data-parsley-checkmin="1" data-parsley-error-message="You should agree with Privacy Policy" name="policy[]" required type="checkbox" />
+                  <span>I am informed about processing of my personal data and the right to withdraw my consent </span>
+                </label>
+              </div>
+            </div>
             </label>
             <div class="form__send">
               <button class="button button--secondary " type="submit">Send message</button>
@@ -195,8 +194,6 @@
           </div>
         </form>
       </div>
-    </div>
-    </div>
     <!---->
     <!--<p>header</p>
 -->
@@ -207,11 +204,7 @@
     </div>
     <!-- END content -->
     <!-- BEGIN scripts -->
-    <!--<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.29.0/mapbox-gl.js'></script>-->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise"></script>
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v5.3.0/build/ol.js"></script>
-    <script src="https://unpkg.com/ol-mapbox-style@3.6.2/dist/olms.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="../build/js/app.js"></script>
     <!-- END scripts -->
   </body>
 </html>

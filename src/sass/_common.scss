@@ -1,3 +1,5 @@
+
+
 html {
     box-sizing: border-box;
     -ms-overflow-style: scrollbar;
@@ -276,6 +278,10 @@ h1 {
         max-width: 100%;
         opacity: 0;
         margin: 0 auto;
+
+        @media only screen and (max-height : 900px){
+            max-width: 480px;
+        }
     }
     &__img {
         display: grid;
@@ -997,8 +1003,13 @@ h1 {
     justify-content: space-between;
 }
 .col-50 {
+     display: inline-block;
+     width: 50%;
+ }
+
+.col-48 {
     display: inline-block;
-    width: 50%;
+    width: 48%;
 }
 
 .overlay {
@@ -1021,7 +1032,7 @@ h1 {
     left: 0;
     right: 0;
     position: fixed;
-    background: rgba(0,0,0,0);
+    background: (251,251,251,0.5);
     visibility: hidden;
 }
 .navigation {
@@ -1354,18 +1365,26 @@ h1 {
     visibility: hidden;
     opacity: 0;
     position: fixed;
-    left: 0;
     width: 100%;
-    padding: 4%;
+    padding: 80px 8.3%;
     max-width: 1000px;
     max-height: 700px;
     left: 50%;
     top: 50px;
     z-index: 410;
     margin-left: -500px;
-    //padding: 70px 80px;
+
+
+    @media (max-height: 900px) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
     &__title {
        @extend .page-title;
+
+        @media (max-height: 900px) {
+            font-size: 48px;
+        }
 
     }
     &__close {
@@ -1483,10 +1502,10 @@ h1 {
 
 
 .form {
-    max-width: 90%;
+    //max-width: 90%;
 
     @media (min-width: 1440px) and (min-height: 800px) {
-        max-width: 80%;
+        //max-width: 80%;
     }
     //max-width: 770px;
 
@@ -1507,6 +1526,10 @@ h1 {
         outline: none;
         width: 100%;
         border: none;
+
+        @media (max-height: 900px) {
+            padding-top: 30px;
+        }
 
         &::-webkit-input-placeholder {
             color: $default-color;
@@ -1543,6 +1566,7 @@ h1 {
         padding-top: 30px;
         padding-bottom: 10px;
         font-size: 14px;
+        width: 100%;
         font-family: $fontDefaultMedium;
         a {
             color: $default-color;
@@ -1557,8 +1581,12 @@ h1 {
         text-align: center;
         margin-top: 52px;
 
-        @media (min-width: 1440px) and (min-height: 800px) {
+        @media (min-width: 1440px) and (min-height: 900px) {
             margin-top: 82px;
+        }
+
+        @media (max-height: 899px) {
+            margin-top: 32px;
         }
     }
     &__required {
@@ -1605,6 +1633,11 @@ h1 {
     &__control {
         position: relative;
         margin-bottom: 10px;
+        flex-wrap: wrap;
+
+        @media (max-height: 900px) {
+            margin-bottom: 0px;
+        }
 
         // === grey underline
 
@@ -1622,6 +1655,7 @@ h1 {
             transform: translateX(-50%);
             z-index: 1;
         }
+
 
         &.has-value input + .form__label{
             top: 16px;
@@ -1664,12 +1698,26 @@ h1 {
             }
         }
 
+        &--last {
+            &::after {
+                display: none;
+            }
+        }
+
     }
+}
+.no-gutters-outside {
+
 }
 .checkbox.parsley-error input{
     border: 1px solid $orange;
 
 }
 
-
+//test
+.map {
+    width: 100%;
+    height: 500px;
+    background: url("../img/map.png") center center no-repeat;
+}
 

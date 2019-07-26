@@ -1,10 +1,12 @@
 import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap"
 import { TimelineMax,TimelineLite, TweenLite, Power4, Power1, Power3, Back, Expo } from 'gsap';
+import mapboxgl from 'mapbox-gl';
 import Animator from './lib/Animator';
 import Paginator from './lib/Paginator';
 import  './lib/navi';
 import "parsleyjs";
+
 
 
 const p = new Paginator();
@@ -69,8 +71,23 @@ $(window).on('load', function () {
 
     }
 
-
   });
+
+  const showContactsPopup = () => {
+    if( $('body').hasClass('is-active-popup')) {
+      tlContacts
+        .fromTo($overlayPopup,0.5,{backgroundColor: "rgba(251,251,251,0.1)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},
+          {backgroundColor: "rgba(251,251,251,1)"  ,opacity: 1, visibility:'visible', zIndex: 405, ease: Power4.easeOut})
+        .fromTo($contactsPopup,0.6,{opacity: 0, visibility:'hidden'}, { visibility:'visible', opacity: 1, ease: Power4.easeOut}, '-=0.2')
+
+    }
+    else {
+      tlContacts
+        .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
+        .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(251,251,251, 1)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
+          {backgroundColor: "rgba(251,251,251,0.1)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+    }
+  }
 
   // show contacts
   $contactsLink.on('click',(e)=> {
@@ -80,31 +97,14 @@ $(window).on('load', function () {
     $('body').toggleClass('is-active-popup')
     $iconMenuLines.toggleClass('is-active')
 
-    // закрываем текущее
-
+    // close menu and overlay
     tlMenu
       .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
       .fromTo($navigation,0.45,{x: '0', ease: Power4.easeOut},{x: '700px'}, '-=0.2')
-      .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
+      .fromTo($overlay,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
 
     // $iconMenu.removeClass('is-active');
-// показываем другое
-    if( $('body').hasClass('is-active-popup')) {
-      tlContacts
-        .fromTo($overlayPopup,0.5,{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},
-          {backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut})
-        .fromTo($contactsPopup,0.6,{opacity: 0, visibility:'hidden'}, { visibility:'visible', opacity: 1, ease: Power4.easeOut}, '-=0.2')
-        // .staggerFromTo(navigationElements,0.2,{x: 80,opacity:0},{x:0,opacity:1},0.1,'-=.5')
-
-    }
-    else {
-      tlContacts
-      // .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
-        .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
-        .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
-          {backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
-      // $('body').removeClass('is-active-popup')
-    }
+      showContactsPopup()
 
   });
 
@@ -113,41 +113,18 @@ $(window).on('load', function () {
 
     $('body').addClass('is-active-popup')
 
-    // $iconMenuLines.toggleClass('is-active')
-
-// показываем другое
-    if( $('body').hasClass('is-active-popup')) {
-      tlContacts
-        .fromTo($overlayPopup,0.5,{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},
-          {backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 405, ease: Power4.easeOut})
-        .fromTo($contactsPopup,0.6,{opacity: 0, visibility:'hidden'}, { visibility:'visible', opacity: 1, ease: Power4.easeOut}, '-=0.2')
-      // .staggerFromTo(navigationElements,0.2,{x: 80,opacity:0},{x:0,opacity:1},0.1,'-=.5')
-
-    }
-    else {
-      tlContacts
-      // .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
-        .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
-        .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
-          {backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
-      $('body').removeClass('is-active-popup')
-    }
+    showContactsPopup()
 
   });
 
 
   $popupClose.on('click',()=> {
     tlContacts
-    // .staggerFromTo(navigationElements,0.2,{x:0,opacity:1},{x: 80,opacity:0},0.1)
       .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, visibility:'visible'},{ visibility:'hidden',opacity: 0}, '-=0.2')
-      .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
-        {backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
-      .fromTo($overlay,0.4,{backgroundColor: "rgba(0,0,0,0.65)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},{backgroundColor: "rgba(0,0,0,0.01)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'-=0.2')
-
-    $('body').removeClass('is-active-popup')
+      .fromTo($overlayPopup,0.4,{backgroundColor: "rgba(251,251,251, 1)"  ,opacity: 1, visibility:'visible', zIndex: 401, ease: Power4.easeOut},
+        {backgroundColor: "rgba(251,251,251, 0.1)"  ,opacity: 0, visibility:'hidden', zIndex: -1, ease: Power4.easeOut},'+=0.2')
+      $('body').removeClass('is-active-popup')
   })
-
-
 
 
 
@@ -253,35 +230,51 @@ $(window).on('load', function () {
   tlWords.eventCallback("onComplete", function() {
     // tlWords.play()
   });
-  //
-
 
 
 
   // map
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpbmFrbnlzaCIsImEiOiJjanllYXVhOHAwemtoM25rNHdpM3ZzcDdyIn0.rAXf3k1slV_7Pmiq8iRZiQ';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/alinaknysh/cjyjojy9h06v41dmcm5m9f6sc',
+    center: [ 12.36148, 51.34515],
+    zoom: 13
+  });
 
-//   // Where you want to render the map.
-//   const element = document.getElementById('osm-map');
-//
-// // Height has to be set. You can do this in CSS too.
-//   element.style = 'height:300px;';
-//
-// // Create Leaflet map on map element.
-//   const map = L.map(element);
-//
-// // Add OSM tile leayer to the Leaflet map.
-//   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-//     attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-//   }).addTo(map);
-//
-// // Target GPS coordinates.
-//   const target = L.latLng('47.50737', '19.04611');
-//
-// // Set map center to target with zoom 14.
-//   map.setView(target, 14);
-//
-// // Place a marker on the same location.
-//   L.marker(target).addTo(map);
+  map.on('load', function() {
+    map.loadImage('../img/ic-location.png', function(error, image) {
+      if (error) throw error;
+      map.addImage('icon', image);
+      map.addLayer({
+        "id": "points",
+        "type": "symbol",
+        "source": {
+          "type": "geojson",
+          "data": {
+            "type": "FeatureCollection",
+            "features": [{
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [12.36148,51.34515]
+              }
+            }]
+          }
+        },
+        "layout": {
+          "icon-image": "icon",
+          "icon-size": 0.9
+        }
+      });
+    });
+
+
+  });
+
+  map.scrollZoom.disable();
+
+
 
 
 
