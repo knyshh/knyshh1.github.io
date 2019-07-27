@@ -1,8 +1,12 @@
 import PubSub from 'pubsub-js';
 
-PubSub.subscribe( 'gotoSlide', function(msg, data) {
 
-  $('.aside-pagination .gotoslide').removeClass('is-active');
+if ($(window).width() > 992) {
 
-  $('[data-gotoslide="'+data.to+'"]').addClass('is-active');
-});
+  PubSub.subscribe( 'gotoSlide', function(msg, data) {
+    $('.aside-pagination .gotoslide').removeClass('is-active');
+    $('[data-gotoslide="'+data.to+'"]').addClass('is-active');
+  });
+
+}
+

@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Index page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fff" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" media="all" href="build/css/app.css" />
+  </head>
+  <body>
+    <!-- BEGIN content -->
+    <div class="wrapper pages">
+      <header class="header">
+        <div class="header-container">
+          <a href="/" class="logo">
+          </a>
+          <div class="menu">
+            <div class="menu__burger">
+              <div class="burger">
+                <div class="burger__line burger__line--top"></div>
+                <div class="burger__line burger__line--bottom"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="page-content">
+        <div class="aboutus">
+          <div class="container">
+            <h1 class="aboutus__title">About us <span class="orange-txt">.</span></h1>
+          </div>
+          <div class="container">
+            <div class="row justify-content-between">
+              <div class="col-md-12 col-lg-6 col-sm-12">
+                <div class="aboutus__linebg3">
+                  <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M70.8586 -2.54763e-06L100 0C100 55.1403 55.139 100 0 100L2.54784e-06 70.8561C39.0692 70.8561 70.8586 39.0674 70.8586 -2.54763e-06Z" fill="#FEBF1C" />
+                  </svg>
+                </div>
+                <div class="aboutus__linebg1">
+                  <svg width="91" height="21" viewBox="0 0 91 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="91" y="7.62939e-06" width="21" height="91" transform="rotate(90 91 7.62939e-06)" fill="#F85B32" />
+                  </svg>
+                </div>
+                <div class="aboutus__linebg2">
+                  <svg width="168" height="168" viewBox="0 0 168 168" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="84" cy="84" r="70" stroke="#CEE8F7" stroke-width="28" />
+                  </svg>
+                </div>
+                <div class="aboutus__wrapper">
+                  <div class="aboutus__content">
+                    <p class="aboutus__txt">Nerio GmbH was founded in 2014 with a passion for e-commerce. From the beginning, we’ve sought out entrepreneurs looking to grow their businesses in niche markets and offered our services to the best of them. E-commerce is our specialty, helping to grow your online presence and profits.</p>
+                    <p class="aboutus__txt">Whether your business is mature or a start-up, we offer customized services for you. We strive not only for quality but also creativity. We’ll be with you every step of the way with solutions tailored to your business.</p>
+                    <p class="aboutus__txt">We’re not your average consulting agency. We don’t rely on advertisements or take whoever walks in through the door: Instead, we seek out opportunities that intrigue and excite us.</p>
+                    <p class="aboutus__txt">You’ll find that a cmbination of our love for business, strong e-commerce solutions and creativity will give you the best tools for guaranteed growth. We know that our passion for business is only matched by yours.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 col-lg-offset-1 ml-lg-auto col-md-12  col-sm-12">
+                <div class="aside-form">
+                  <h3 class=" js-show-popup aside-form__title">Have a project in mind?</h3>
+                  <button class="button button--primary js-show-popup">Let’s talk</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-us contact-us--pages">
+          <div class="contact-us__container-center">
+            <div class="contact-us__animation">
+              <h4 class="contact-us__title">Have a project in mind?</h4>
+              <button class="button button--secondary js-show-popup">Contact us</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div class="container-fluid no-gutters">
+          <div class="row row-flex no-gutters">
+            <div class="col-lg-4 offset-lg-1 col-lg-4 offset-lg-1 col-md-12  col-sm-12 footer-section__left">
+              <div class="location">
+                <h4 class="location__title">Location <span class="line-white"></span></h4>
+                <address class="location__txt">Funkenburgstraße 17  </address>
+                <address class="location__txt"> 04105 Leipzig </address>
+              </div>
+            </div>
+            <div class="col-lg-7 footer-section__right no-gutters col-md-12  col-sm-12">
+              <div id="map" class="map">
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="container">
+            <div class="row justify-content-between align-items-center">
+              <div class="col-md-6 col-sm-6 col-6">
+                <p class="footer__txt">© 2018 Nerio GmbH</p>
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <nav class="footer__nav">
+                  <ul>
+                    <li class="footer__item"><a href="legal.html">Legal</a></li>
+                    <li class="footer__item"><a href="policy.html">Privacy</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+      <section class="overlay"></section>
+      <nav class="navigation">
+        <h4 data-nav class="navigation__title">Menu<span class="orange-txt">.</span></h4>
+        <ul class="navigation__list">
+          <li data-nav class="navigation__item"><a class="navigation__href" href="index.html">Home</a></li>
+          <li data-nav class="navigation__item"><a class="navigation__href" href="aboutus.html">About us</a></li>
+          <li data-nav class="navigation__item"><a class="navigation__href" href="whatwedo.html">What we do</a></li>
+          <li id="contacts" data-nav class="navigation__item"><a class="navigation__href" href="">Contact</a></li>
+        </ul>
+      </nav>
+      <!--//popup-->
+      <section class="overlay2"></section>
+      <div class="popup contact-popup">
+        <div class="popup__close">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 1L1 19" stroke="black" stroke-opacity="0.3" />
+            <path d="M19 19L1 0.999999" stroke="black" stroke-opacity="0.3" />
+          </svg>
+        </div>
+        <form data-parsley-validate class="form" name="form-contact" id="form-contact" data-parsley-validate>
+          <div class="container">
+            <div class="row no-gutters">
+              <h3 class="popup__title">Let's talk</h3>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row no-gutters justify-content-between">
+              <div class="col-48">
+                <div class="form__control">
+                  <input name="" required class="form__input" type="name" data-msg-required="The field is required." data-parsley-errors-container=".error-form1">
+                  <label class="form__label">
+                    <span class="form__required">*</span>Name </label>
+                  <div class="error error-form1"></div>
+                </div>
+              </div>
+              <div class="col-48">
+                <div class="form__control">
+                  <input class="form__input" required name="" data-msg-required="The field is required." data-parsley-errors-container=".error-form2" type="email">
+                  <label class="form__label">
+                    <span class="form__required">*</span>Email </label>
+                  <div class="error error-form2">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form__control">
+              <input class="form__input" name="" type="text">
+              <label class="form__label">Describe your project</label>
+            </div>
+            <div class="form__control">
+              <input class="form__input" required name="" data-msg-required="The field is required." data-parsley-errors-container=".error-form3" type="text">
+              <label class="form__label">
+                <span class="form__required">*</span>Message </label>
+              <div class="error error-form3">
+              </div>
+            </div>
+            <div class="form__control form__control--last">
+              <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal data will be processed by Nerio GmbH. Please read our <a href="/policy.html">Privacy Notice</a> for more information. </p>
+              <div>
+                <label class="checkbox">
+                  <input data-parsley-required-message="" data-parsley-checkmin="1" data-parsley-error-message="You should agree with Privacy Policy" name="policy[]" required type="checkbox" />
+                  <span>I am informed about processing of my personal data and the right to withdraw my consent </span>
+                </label>
+              </div>
+            </div>
+            </label>
+            <div class="form__send">
+              <button class="button button--secondary " type="submit">Send message</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!---->
+      <!--<p>header</p>
+-->
+      <!---->
+      <!--
+<svg class="icon icon-facebook"><use xlink:href="img/sprite.svg#icon-facebook"></use></svg>
+-->
+    </div>
+    <!-- END content -->
+    <!-- BEGIN scripts -->
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <!-- END scripts -->
+  </body>
+</html>

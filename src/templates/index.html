@@ -8,6 +8,8 @@
   <meta name="theme-color" content="#fff" />
   <meta name="format-detection" content="telephone=no" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
 
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -19,7 +21,7 @@
 <div class="container-app">
   <header class="header header--main">
     <div class="header-container">
-      <a href="#" class="logo">
+      <a href="/" class="logo">
       </a>
       <div class="menu">
 
@@ -36,7 +38,6 @@
 
   <div class="container container-pagination">
 
-
     <nav class="aside-pagination">
       <div class="indicator"></div>
       <ul>
@@ -48,119 +49,77 @@
 
   </div>
 
-
-
-  <!--<script>-->
-    <!--mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpbmFrbnlzaCIsImEiOiJjanllZXN5aWIwMDQwM2RyemUyd241NDB5In0.fn9Mg4LjGVM30Z_t2irkXQ';-->
-    <!--var map = new mapboxgl.Map({-->
-      <!--container: 'map', // container id-->
-      <!--style: 'mapbox://styles/mapbox/dark-v10', //https://maps.targomo.com/ set style-->
-      <!--center: [ 12.36148, 51.34515],-->
-      <!--zoom: 12-->
-    <!--});-->
-
-    <!--map.on('load', function() {-->
-      <!--map.loadImage('../img/ic-location.png', function(error, image) {-->
-        <!--if (error) throw error;-->
-        <!--map.addImage('cat', image);-->
-        <!--map.addLayer({-->
-          <!--"id": "points",-->
-          <!--"type": "symbol",-->
-          <!--"source": {-->
-            <!--"type": "geojson",-->
-            <!--"data": {-->
-              <!--"type": "FeatureCollection",-->
-              <!--"features": [{-->
-                <!--"type": "Feature",-->
-                <!--"geometry": {-->
-                  <!--"type": "Point",-->
-                  <!--"coordinates": [12.36148,51.34515]-->
-                <!--}-->
-              <!--}]-->
-            <!--}-->
-          <!--},-->
-          <!--"layout": {-->
-            <!--"icon-image": "cat",-->
-            <!--"icon-size": 0.9-->
-          <!--}-->
-        <!--});-->
-      <!--});-->
-    <!--});-->
-  <!--  </script> -->
-
-
-
     <div class="sections">
 
       <section data-slide="1" class="section is-active slide slide1 slide-intro main-slider-section home-slide--intro">
-        <!--<h1 class="text1 title">Strong creative solutions.</h1>-->
         <span class="scroll" id="scroll" data-goto="2">Scroll down </span>
 
-
         <div class="container-fluid desktop">
-          <div class="row no-gutters justify-content-center align-items-center">
-            <div class="centered">
+          <div class="centered mobile-v">
+            <h1 class="mobile-title title">Strong  creative </br>solutions
+              <span class="orange-txt">.</span>
+            </h1>
+          </div>
 
+          <div class="desktop-v row no-gutters justify-content-center align-items-center">
+
+            <div class="centered desktop-v">
               <!--<h1 id="text1" class="title--title2 text1 title"> Strong creative  <br> solutions<span class="line-orange">.</span></span></h1>-->
+                <h1 class="title--title2 text1 title">
+                  <div class="char char-slide1 char-letter-spacing"  >S</div>
+                  <div class="char char-slide1 char-letter-spacing" >t</div>
+                  <div class="char char-slide1 char-letter-spacing"  >r</div>
+                  <div class="char char-slide1 char-letter-spacing"  >o</div>
+                  <div class="char char-slide1 char-letter-spacing"  >n</div>
+                  <div class="char char-slide1 char-letter-spacing "  >g</div>
+                  <div class="char char-slide1 char-letter-spacing"  > </div>
 
-              <h1 class="title--title2 text1 title">
-                <div class="char char-slide1 char-letter-spacing"  >S</div>
-                <div class="char char-slide1 char-letter-spacing" >t</div>
-                <div class="char char-slide1 char-letter-spacing"  >r</div>
-                <div class="char char-slide1 char-letter-spacing"  >o</div>
-                <div class="char char-slide1 char-letter-spacing"  >n</div>
-                <div class="char char-slide1 char-letter-spacing "  >g</div>
-                <div class="char char-slide1 char-letter-spacing"  > </div>
+                  <div class="words words1" style="">
+                    <div class="word-1">
+                      <div class="char char-slide1"  >c</div>
+                      <div class="char char-slide1 "  >r</div>
+                      <div class="char char-slide1 "  >e</div>
+                      <div class="char char-slide1 "  >a</div>
+                      <div class="char char-slide1 "  >t</div>
+                      <div class="char char-slide1 "  >i</div>
+                      <div class="char char-slide1 "  >v</div>
+                      <div class="char char-slide1 "  >e</div>
+                    </div>
+                    <div class="word-2">
+                      <div class="char">d</div>
+                      <div class="char">i</div>
+                      <div class="char">g</div>
+                      <div class="char">i</div>
+                      <div class="char">t</div>
+                      <div class="char">a</div>
+                      <div class="char">l</div>
+                    </div>
 
-                <div class="words words1" style="">
-                  <div class="word-1">
-                    <div class="char char-slide1"  >c</div>
-                    <div class="char char-slide1 "  >r</div>
-                    <div class="char char-slide1 "  >e</div>
-                    <div class="char char-slide1 "  >a</div>
-                    <div class="char char-slide1 "  >t</div>
-                    <div class="char char-slide1 "  >i</div>
-                    <div class="char char-slide1 "  >v</div>
-                    <div class="char char-slide1 "  >e</div>
+                    <div class="word-3">
+                      <div class="char">t</div>
+                      <div class="char ">a</div>
+                      <div class="char ">i</div>
+                      <div class="char ">l</div>
+                      <div class="char ">o</div>
+                      <div class="char ">r</div>
+                      <div class="char ">e</div>
+                      <div class="char ">d</div>
+                    </div>
+
+                    <div class="word-4">
+                      <div class="char ">c</div>
+                      <div class="char ">r</div>
+                      <div class="char">e</div>
+                      <div class="char">a</div>
+                      <div class="char">t</div>
+                      <div class="char">i</div>
+                      <div class="char">v</div>
+                      <div class="char ">e</div>
+                    </div>
+
                   </div>
-                  <div class="word-2">
-                    <div class="char">c</div>
-                    <div class="char">r</div>
-                    <div class="char">e</div>
-                    <div class="char">a</div>
-                    <div class="char">t</div>
-                    <div class="char">i</div>
-                    <div class="char">v</div>
-                    <div class="char">e</div>
-                    <div class="char">2</div>
-                  </div>
-
-                  <div class="word-3">
-                    <div class="char">c</div>
-                    <div class="char ">r</div>
-                    <div class="char ">e</div>
-                    <div class="char ">a</div>
-                    <div class="char ">t</div>
-                    <div class="char ">i</div>
-                    <div class="char ">v</div>
-                    <div class="char ">e</div>
-                    <div class="char ">3</div>
-                  </div>
-
-                  <div class="word-4">
-                    <div class="char ">c</div>
-                    <div class="char ">r</div>
-                    <div class="char">e</div>
-                    <div class="char">a</div>
-                    <div class="char">t</div>
-                    <div class="char">i</div>
-                    <div class="char">v</div>
-                    <div class="char ">e</div>
-                  </div>
-
-                </div>
-                <br>
-                <div>
+                  <br>
+                  <div>
                     <div class="char char-slide1  char32">s</div>
                     <div class="char char-slide1  char33">o</div>
                     <div class="char char-slide1  char34">l</div>
@@ -171,8 +130,8 @@
                     <div class="char char-slide1  char39">n</div>
                     <div class="char char-slide1  char40">s</div>
                     <div class="char char-slide1  char41 orange-txt">.</div>
-                </div>
-              </h1>
+                  </div>
+                </h1>
             </div>
           </div>
         </div>
@@ -249,13 +208,13 @@
         <div class="container">
           <div class="row justify-content-between">
 
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 ">
               <div class="about-section__img">
                 <img  srcset="img/img-about@1x.png, img/img-about@2x.png 2x" src="img/img-about@1x.png" alt="">
               </div>
             </div>
 
-            <div class="col-md-5 col-md-offset-1 ml-md-auto">
+            <div class="col-lg-5 col-md-12 col-sm-12 col-12 col-lg-offset-1 ml-lg-auto">
               <div class="about">
                 <div class="line-orange"></div>
                 <h3 class="about__title">We help your business grow</h3>
@@ -267,21 +226,62 @@
         </div>
       </section>
 
-      <section data-slide="3" data-slider-inside="3" class="section slide slide3  slider-about-section">
+      <div class="container">
+        <div class="tablet-slider">
+          <div class="tablet-slider__item">
+
+            <h3 class="main-slide__title">Creation</h3>
+            <div class="slide-content">
+              <p class="main-slide__txt">We create and operate high performing websites focused on showcasing your product or service. You can turn to us for marketing and technology know-how. </p>
+              <ul class="inner-pagination">
+                <li class="inner-pagination__item inner-slide3-block1">
+                  <span class="inner-pagination__number">01 /</span>
+                  <span class="inner-pagination__txt">Concept <span class="inner-pagination__line"></span></span>
+                </li>
+                <li class="inner-pagination__item inner-slide3-block2">
+                  <span class="inner-pagination__number">02 /</span>
+                  <span class="inner-pagination__txt">Selection of Service <span class="inner-pagination__line"></span></span>
+                </li>
+                <li class="inner-pagination__item inner-slide3-block3">
+                  <span class="inner-pagination__number">03 /</span>
+                  <span class="inner-pagination__txt">Final Optimization <span class="inner-pagination__line"></span></span>
+                </li>
+              </ul>
+
+              <a href="/whatwedo.html" class="button--mhide button button--primary">Read more</a>
+            </div>
+
+          </div>
+
+          <div class="tablet-slider__item">
+
+            <h3 class="main-slide__title">Consulting</h3>
+            <div class="slide-content">
+              <p class="main-slide__txt">Our consultation services will have you on the way to digital transformation. We specialize in market-and demand-oriented strategies. </p>
+              <a href="/whatwedo.html" class="button--mhide button button--primary" >Read more</a>
+            </div>
+          </div>
+
+          <div class="tablet-slider__item">
+            <h3 class="main-slide__title">Investment</h3>
+            <div class="slide-content">
+              <p class="main-slide__txt">We partner with passionate B2C entrepreneurs to bring them to the next stage of commercial success with our investments.</p>
+              <a href="/whatwedo.html" class="button button--primary">Read more</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <section data-slide="3" data-slider-inside="3" class="hide-tablet section slide slide3  slider-about-section">
           <div class="home-slide main-slide__item">
 
             <div class="container">
-              <!--<nav class="aside-pagination">-->
-                <!--<div class="indicator"></div>-->
-                <!--<ul>-->
-                  <!--<li data-gotoslide="3" class="gotoslide first goto3 aside-pagination__href is-active">01</li>-->
-                  <!--<li data-gotoslide="4" class="gotoslide goto4 aside-pagination__href">02</li>-->
-                  <!--<li data-gotoslide="5" class="gotoslide goto5 aside-pagination__href">03</li>-->
-                <!--</ul>-->
-              <!--</nav>-->
               <div class="row justify-content-between">
 
-                <div class="col-md-5 offset-md-1 col-lg-5 offset-lg-1 align-self-center col-left-slider">
+                <div class="col-md-12 col-sm-12 col-12  col-lg-5 offset-lg-1 align-self-center col-left-slider">
                   <div class="slide-left">
 
                     <h3 class="main-slide__title">Creation</h3>
@@ -302,13 +302,13 @@
                           </li>
                         </ul>
 
-                        <a href="/whatwedo.html" class="button button--primary">Read more</a>
+                        <a href="/whatwedo.html" class="button--mhide button button--primary">Read more</a>
 
                     </div>
 
                   </div>
                 </div>
-                <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
+                <div class="col-md-12 col-sm-12 col-12  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
                   <div class="centered-block">
                     <img class="main-slide__img" srcset="img/img-creativity@1x.png, img/img-creativity@2x.png 2x" src="/img/img-creativity@1x.png" alt="">
                   </div>
@@ -318,25 +318,23 @@
           </div>
       </section>
 
-      <section data-slide="4" data-slider-inside="4" class="section slide slide4  slider-about-section">
-
+      <section data-slide="4" data-slider-inside="4" class="hide-tablet  section slide slide4  slider-about-section">
         <div class="home-slide main-slide__item">
           <div class="container">
             <div class="row justify-content-between">
-              <div class="col-md-5 offset-md-1 col-lg-5 offset-lg-1 align-self-center  col-left-slider">
+              <div class="col-md-12 col-sm-12 col-12  col-lg-5 offset-lg-1 align-self-center  col-left-slider">
                 <div class="slide-left">
                   <h3 class="main-slide__title">Consulting</h3>
                   <div class="slide-content">
                     <p class="main-slide__txt">Our consultation services will have you on the way to digital transformation. We specialize in market-and demand-oriented strategies. </p>
-                    <a href="/whatwedo.html" class="button button--primary" >Read more</a>
+                    <a href="/whatwedo.html" class="button--mhide button button--primary" >Read more</a>
                   </div>
                 </div>
 
               </div>
-              <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
+              <div class="col-md-12 col-sm-12 col-12  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
                 <div class="centered-block">
                   <img class="main-slide__img" srcset="/img/img-consulting@1x.png, /img/img-consulting@2x.png 2x" src="/img/img-consulting@1x.png" alt="">
-
                 </div>
               </div>
             </div>
@@ -344,11 +342,11 @@
         </div>
       </section>
 
-      <section data-slide="5" data-slider-inside="5" class="section slide slide5  slider-about-section">
+      <section data-slide="5" data-slider-inside="5" class="hide-tablet  section slide slide5  slider-about-section">
         <div class="home-slide main-slide__item">
           <div class="container">
             <div class="row justify-content-between">
-              <div class="col-md-5 offset-md-1 col-lg-5 offset-lg-1 align-self-center col-left-slider">
+              <div class="col-md-12 col-sm-12 col-12  col-lg-5 offset-lg-1 align-self-center col-left-slider">
                 <div class="slide-left">
                   <h3 class="main-slide__title">Investment</h3>
                   <div class="slide-content">
@@ -358,17 +356,15 @@
                 </div>
               </div>
 
-              <div class="col-md-5 col-md-offset-1 ml-md-auto align-self-center">
+              <div class="col-md-12 col-sm-12 col-12  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
                 <div class="centered-block">
                   <img class="main-slide__img" srcset="/img/img-investment@1x.png, /img/img-investment@2x.png 2x" src="/img/img-investment@1x.png" alt="">
-
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-
       </section>
 
       <section data-slide="6" class="section slide slide6 contact-us">
@@ -385,29 +381,28 @@
 
         <div class="container-fluid no-gutters">
           <div class="row row-flex no-gutters">
-            <div class="col-md-4 offset-md-1 col-lg-4 offset-lg-1 footer-section__left">
-              <div class="location location--main">
+            <div class="col-lg-4 offset-lg-1 col-lg-4 offset-lg-1 col-md-12  col-sm-12 footer-section__left">
+              <div class="location">
                 <h4 class="location__title">Location <span class="line-white"></span></h4>
                 <address class="location__txt">Funkenburgstraße 17  </address>
                 <address class="location__txt"> 04105 Leipzig </address>
               </div>
             </div>
-            <div class="col-md-7 footer-section__right no-gutters">
+            <div class="col-lg-7 footer-section__right no-gutters col-md-12  col-sm-12">
               <div id="map" class="map">
               </div>
             </div>
           </div>
         </div>
 
-
-            <footer class="footer">
+        <footer class="footer">
               <div class="container">
 
                 <div class="row justify-content-between align-items-center">
-                  <div class="col-md-6">
+                  <div class="col-md-6 col-sm-6 col-6">
                     <p class="footer__txt">© 2018 Nerio GmbH</p>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6 col-sm-6 col-6">
                     <nav class="footer__nav">
                       <ul>
                         <li class="footer__item"><a href="/legal.html">Legal</a></li>
@@ -475,9 +470,9 @@
                 <input class="form__input" required name=""
                        data-msg-required="The field is required."
                        data-parsley-errors-container=".error-form2"
-                       type="password">
+                       type="email">
                 <label class="form__label">
-                  <span class="form__required">*</span>Password
+                  <span class="form__required">*</span>Email
                 </label>
 
                 <div  class="error error-form2">
@@ -536,8 +531,6 @@
         </div>
       </form>
     </div>
-
-
 
     </div>
   </div>
