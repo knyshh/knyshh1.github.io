@@ -12,7 +12,7 @@
 </head>
 <body>
 <!-- BEGIN content -->
-<div class="wrapper pages">
+<div class="wrapper pages withoutmap">
   <header class="header">
     <div class="header-container">
       <a href="/" class="logo">
@@ -462,14 +462,15 @@
                     learning from your actions and creating a better experience for you and other users.
                   </p>
 
-                  <div class="policy-form" name="form-policy" id="form-policy" >
-                    <form>
-                      <label class="checkbox">
+                  <div class="policy-form"  >
+                    <form name="form-policy" class="form-policy" id="form-policy" >
+                      <label for="policy-check" class="checkbox">
                         <input
+                          id="policy-check"
                           data-parsley-required-message=""
                           data-parsley-checkmin="1"
                           data-parsley-error-message="You should agree with Privacy Policy"
-                          name="policyform[]" required value='policy-yes'  type="checkbox" />
+                          name="policyform[]" required checked value='policy-yes'  type="checkbox" />
                         <span>You are not opted out. Uncheck this box to opt-out. </span>
                       </label>
 
@@ -638,7 +639,7 @@
 
         <div class="form__control form__control--last">
           <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal
-            data will be processed by Nerio GmbH. Please read our <a href="/policy.html">Privacy
+            data will be processed by Nerio GmbH.  Please read our <a href="/policy.html">Privacy
               Notice</a> for more information. </p>
 
           <div>
