@@ -123,7 +123,8 @@ if ($(window).width() > 992 && device.desktop()) {
 
     const slidePagination = new TimelineMax();
 
-    let positionIndicator = $('.aside-pagination li.is-active').offset().top;
+    let positionIndicator = $('.aside-pagination li.is-active').offset().top;// top
+    console.log('pos', positionIndicator)
     let currentItem  = $('[data-gotoslide='+data.from+']');
     let newItem = $('[data-gotoslide='+data.to+']');
 
