@@ -7,12 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#fff" />
   <meta name="format-detection" content="telephone=no" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
-
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
-
 
   <link rel="stylesheet" media="all" href="css/app.css" />
 </head>
@@ -208,13 +202,13 @@
         <div class="container">
           <div class="row justify-content-between">
 
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 ">
+            <div class="about-left col-lg-6 col-md-12 col-sm-12 col-12 ">
               <div class="about-section__img">
                 <img  srcset="img/img-about@1x.png, img/img-about@2x.png 2x" src="img/img-about@1x.png" alt="">
               </div>
             </div>
 
-            <div class="col-lg-5 col-md-12 col-sm-12 col-12 col-lg-offset-1 ml-lg-auto">
+            <div class="about-right col-lg-5 col-md-12 col-sm-12 col-12 col-lg-offset-1 ml-lg-auto">
               <div class="about">
                 <div class="line-orange"></div>
                 <h3 class="about__title">We help your business grow</h3>
@@ -440,18 +434,18 @@
           <path d="M19 19L1 0.999999" stroke="black" stroke-opacity="0.3"/>
         </svg>
       </div>
-      <form data-parsley-validate class="form" name="form-contact" id="form-contact" data-parsley-validate>
+      <form data-parsley-validate class="form form-contact" name="form-contact" id="form-contact">
 
-        <div class="container">
+        <div class="container hide-success">
           <div class="row no-gutters">
             <h3 class="popup__title">Let's talk</h3>
           </div>
         </div>
-        <div class="container">
+        <div class="container hide-success">
           <div class="row no-gutters justify-content-between">
             <div class="col-48">
               <div class="form__control">
-                <input  name="" required
+                <input  name="name" required
                         class="form__input"
                         type="name"
                         data-msg-required="The field is required."
@@ -467,7 +461,7 @@
             <div class="col-48">
               <div class="form__control">
 
-                <input class="form__input" required name=""
+                <input class="form__input" required name="email"
                        data-msg-required="The field is required."
                        data-parsley-errors-container=".error-form2"
                        type="email">
@@ -483,13 +477,13 @@
 
           <div class="form__control">
 
-            <input class="form__input" name="" type="text">
+            <input class="form__input" name="description" type="text">
             <label class="form__label">Describe your project</label>
           </div>
 
           <div class="form__control">
 
-            <input class="form__input" required name=""
+            <input class="form__input" required name="message"
                    data-msg-required="The field is required."
                    data-parsley-errors-container=".error-form3"
                    type="text">
@@ -514,7 +508,7 @@
                   data-parsley-required-message=""
                   data-parsley-checkmin="1"
                   data-parsley-error-message="You should agree with Privacy Policy"
-                  name="policy[]" required type="checkbox" />
+                  name="policy[]" required value='policy-yes'  type="checkbox" />
                 <span>I am informed about processing of my personal
                   data and the right to withdraw my consent </span>
               </label>
@@ -525,9 +519,16 @@
           </label>
 
           <div class="form__send">
-            <button class="button button--secondary " type="submit">Send message</button>
+            <button  id="send-contact-data" class="button button--secondary " type="submit">Send message</button>
           </div>
 
+        </div>
+
+        <div class="show-success">
+          <p> Thank you !</p>
+        </div>
+        <div class="show-fail">
+          <p> oops ! server error . try again . </p>
         </div>
       </form>
     </div>

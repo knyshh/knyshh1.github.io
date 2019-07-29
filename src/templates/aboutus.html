@@ -7,10 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#fff" />
   <meta name="format-detection" content="telephone=no" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
-
 
   <link rel="stylesheet" media="all" href="css/app.css" />
 </head>
@@ -171,18 +167,18 @@
         <path d="M19 19L1 0.999999" stroke="black" stroke-opacity="0.3"/>
       </svg>
     </div>
-    <form data-parsley-validate class="form" name="form-contact" id="form-contact" data-parsley-validate>
+    <form data-parsley-validate class="form form-contact" name="form-contact" id="form-contact">
 
-      <div class="container">
+      <div class="container hide-success">
         <div class="row no-gutters">
           <h3 class="popup__title">Let's talk</h3>
         </div>
       </div>
-      <div class="container">
+      <div class="container hide-success">
         <div class="row no-gutters justify-content-between">
           <div class="col-48">
             <div class="form__control">
-              <input  name="" required
+              <input  name="name" required
                       class="form__input"
                       type="name"
                       data-msg-required="The field is required."
@@ -198,7 +194,7 @@
           <div class="col-48">
             <div class="form__control">
 
-              <input class="form__input" required name=""
+              <input class="form__input" required name="email"
                      data-msg-required="The field is required."
                      data-parsley-errors-container=".error-form2"
                      type="email">
@@ -214,13 +210,13 @@
 
         <div class="form__control">
 
-          <input class="form__input" name="" type="text">
+          <input class="form__input" name="description" type="text">
           <label class="form__label">Describe your project</label>
         </div>
 
         <div class="form__control">
 
-          <input class="form__input" required name=""
+          <input class="form__input" required name="message"
                  data-msg-required="The field is required."
                  data-parsley-errors-container=".error-form3"
                  type="text">
@@ -245,7 +241,7 @@
                 data-parsley-required-message=""
                 data-parsley-checkmin="1"
                 data-parsley-error-message="You should agree with Privacy Policy"
-                name="policy[]" required type="checkbox" />
+                name="policy[]" required value='policy-yes'  type="checkbox" />
               <span>I am informed about processing of my personal
                   data and the right to withdraw my consent </span>
             </label>
@@ -256,9 +252,16 @@
         </label>
 
         <div class="form__send">
-          <button class="button button--secondary " type="submit">Send message</button>
+          <button  id="send-contact-data" class="button button--secondary " type="submit">Send message</button>
         </div>
 
+      </div>
+
+      <div class="show-success">
+        <p> Thank you !</p>
+      </div>
+      <div class="show-fail">
+        <p> oops ! server error . try again . </p>
       </div>
     </form>
   </div>

@@ -99,6 +99,14 @@ $(window).on('load', function () {
     }
   }
 
+  const closePopup = () => {
+    tlContacts
+      .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, display:'block'},{ display:'none',opacity: 0}, '-=0.2')
+      .fromTo($overlayPopup,0.4,{backgroundColor: `rgba(${colorBgOverlay},1)` ,opacity: 1, display:'block', zIndex: 401, ease: Power4.easeOut},
+        {backgroundColor: `rgba(${colorBgOverlay},0.1)` ,opacity: 0, display:'none', zIndex: -1, ease: Power4.easeOut},'+=0.2')
+    $('body').removeClass('is-active-popup')
+  }
+
   // show contacts
   $contactsLink.on('click',(e)=> {
 
@@ -131,13 +139,7 @@ $(window).on('load', function () {
   });
 
 
-  $popupClose.on('click',()=> {
-    tlContacts
-      .fromTo($contactsPopup,0.45,{opacity: 1, ease: Power4.easeOut, display:'block'},{ display:'none',opacity: 0}, '-=0.2')
-      .fromTo($overlayPopup,0.4,{backgroundColor: `rgba(${colorBgOverlay},1)` ,opacity: 1, display:'block', zIndex: 401, ease: Power4.easeOut},
-        {backgroundColor: `rgba(${colorBgOverlay},0.1)` ,opacity: 0, display:'none', zIndex: -1, ease: Power4.easeOut},'+=0.2')
-      $('body').removeClass('is-active-popup')
-  })
+  $popupClose.on('click', () => closePopup())
 
   if( device.tablet()) {
     $(".tablet-slider").slick({
@@ -159,7 +161,7 @@ $(window).on('load', function () {
   //
   // }
 
-  if ($(window).width() > 992 && device.desktop() ) { // and mobile desktop and device tablet
+  if ($(window).width() > 992 && device.desktop() || device.tablet()) { // and mobile desktop and device tablet
 
     const tlWords = new TimelineLite({
       id:'init'
@@ -219,10 +221,6 @@ $(window).on('load', function () {
 
     // animation for h1
     tlWords
-    // .addLabel("initial")
-    // .set((".text1.title"), {
-    //   opacity: 1
-    // }, "initial")
       .staggerFromTo(charArr, 1.2, {opacity: 0, scale: 0.97, y: "15px", transformOrigin: "0% 50% -50", ease: Power4.easeOut},
         {opacity: 1, scale: 1, y: "0", transformOrigin: "0% 50% 0", ease: Power4.easeOut}, 0.05, "-=0.45")
       .fromTo($('.scroll'), 0.4, {opacity: 0, y: "100px", ease: Power4.easeOut},
@@ -314,5 +312,53 @@ $(window).on('load', function () {
 
   map.scrollZoom.disable();
 
+  // sending contact form
+
+
+  $("#form-contact").on("submit", function(e) {
+    e.preventDefault()
+
+    const url  = 'http://localhost:8080';// paste here url
+
+    $.ajax({
+      url,
+      type: 'POST',
+      dataType: "JSON",
+      data: $(this).serialize(),
+      processData: false,
+      contentType: false,
+      success (data, status)
+      {
+        $('#form-contact')[0].reset(); // reset form after sending
+        $('.hide-success').css("visibility", "hidden");
+        setTimeout(()=> {
+          $('.show-success'). css("visibility", "visible");
+        }, 700);
+
+        setTimeout(()=> {
+          closePopup()
+          $('.hide-success').css("visibility", "visible");
+          $('.show-success'). css("visibility", "hidden");
+        }, 3500);
+      },
+      error (xhr, desc, err)
+      {
+        console.log('error',err)
+
+        $('#form-contact')[0].reset(); // reset form after sending
+        $('.hide-success').css("visibility", "hidden");
+        setTimeout(()=> {
+          $('.show-fail'). css("visibility", "visible");
+        }, 700);
+
+        setTimeout(()=> {
+          closePopup()
+          $('.hide-success').css("visibility", "visible");
+          $('.show-fail'). css("visibility", "hidden");
+        }, 3500);
+      }
+    });
+
+  });
 
 });
