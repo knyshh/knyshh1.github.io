@@ -2280,7 +2280,11 @@ h1 {
 }
 
 
-
+.mobile {
+    .txtcontent {
+        word-break: break-word;
+    }
+}
 //legal privacy other pages
 
 .txtcontent {
@@ -2801,7 +2805,9 @@ h1 {
 
     display: block;
     position: absolute;
-    left: -16px;
+    left: -19px;
+    width: 18px;
+    height: 18px;
     top: -1px;
 }
 .parsley-errors-list {
@@ -2849,8 +2855,8 @@ h1 {
         width: 100%;
         border: none;
 
-        @media (max-height: 900px) {
-            padding-top: 30px;
+        @media (max-height: 800px)  and (orientation: portrait){
+            padding-top: 27px;
         }
 
         &::-webkit-input-placeholder {
@@ -3020,6 +3026,16 @@ h1 {
         }
 
         &--last {
+            @media (max-height: 800px) and (orientation: portrait) {
+                .form__txt {
+                    padding-top: 10px;
+                    font-size: 12px;
+                }
+                .checkbox>span {
+                    font-size: 12px;
+                }
+            }
+
             &::after {
                 display: none;
             }
@@ -3158,7 +3174,11 @@ h1 {
     background-color: #ffffff;
     margin-bottom: 20px;
 
+    @media (min-width: 320px) and (min-height: 650px) {
+        padding: 0 20px 0 20px;
+    }
 }
+
 .address-policy {
     display: inline-block;
     width: 100%;
