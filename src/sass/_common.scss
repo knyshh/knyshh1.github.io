@@ -200,7 +200,7 @@ h1 {
 }
 @media (min-width: 1440px) {
     .container {
-        max-width: 1440px;
+        max-width: 1180px;
     }
 }
 
@@ -279,33 +279,6 @@ h1 {
 }
 .container-pagination {
     position: relative;
-}
-
-.section {
-
-    @media (min-width: 992px) {
-
-        //width: 100%;
-        //overflow: hidden;
-        //position: absolute;
-        //top: 0;
-        //left: 0;
-        //opacity: 0;
-        //height: 100vh;
-        //&.is-active {
-        //    opacity: 1
-        //}
-		//
-        //&:not(.footer-section):not(.slider-about-section):not(.about-section) {
-        //    .container {
-        //        height: calc(100vh - 150px);
-        //    }
-        //}
-        //&:not(.slide-intro):not(.slider-about-section):not(.about-section) {
-        //    padding: 75px 0;
-        //}
-
-    }
 }
 
 .about-section {
@@ -689,16 +662,6 @@ h1 {
     padding: 100px 0 75px 0;
     .container {
         position: relative;
-    }
-
-    @media (min-width: 320px) and (max-width: 767px) {
-        //padding: 20px 25px 0 25px;
-        //&.slide3 {
-        //    padding-top: 35px;
-        //}
-        //&.slide5 {
-        //    padding-bottom: 80px;
-        //}
     }
 
 }
@@ -3274,6 +3237,15 @@ h1 {
 
         .slick-dots {
             left: 15%;
+        }
+    }
+
+}
+
+.desktop {
+    @media (min-width:1440px) {
+        .container {
+            max-width: 1180px
         }
     }
 
