@@ -57,7 +57,6 @@ if ($(window).width() > 992 && device.desktop()) {
     }
 
     let footer = $('.footer');
-    let footerHeader = $(".footer-header-bg")
     let loactionline = $('.line-white');
 
 
@@ -70,42 +69,21 @@ if ($(window).width() > 992 && device.desktop()) {
       .set(newSlide,{zIndex:2},'+=0.1')
       .set(currentSlide, {className:"-=is-active"},'+=0.1')
       .set(newSlide, {className:"+=is-active"},'+=0.1')
+      .fromTo(footer , 0.4, {y: 100 ,opacity:0},{y:0, opacity:1, ease: Power0.easeIn},'-=0.55')
+      .fromTo($('.location'), 0.45 , {y: '100%',opacity:0 },{y: "0%", ease: Power0.easeIn,opacity:1 },'-=0.2')
+      .fromTo(loactionline , 0.4, { width: 0, opacity: 0} ,{ autoAlpha:1, width: '50px', opacity:1, ease: Power4.easeIn}, '-=0.15')
 
 
     let tl = new TimelineMax();
 
-    let onCompleteContactUs = () => {
-      tl.set($('.slide6'), {clearProps:"all"})
-    }
-
-    let onCompleteFooter = () => {
-      tl.set($('.slide7'), {clearProps:"all"})
-
-    }
-
 
     if( data.from === 6 &&  data.to === 7 ) {
-      tl
-        .fromTo(currentSlide, 0.5,{y: '0%', ease: Back.easeOut},{y: '-150%',
-          ease: Power4.easeInOut,
-          onComplete: onCompleteContactUs
-        })
-        .fromTo(footer , 0.5, {y: 500, x: 10 ,opacity:0},{y:0,x: 0, opacity:1, ease: Power0.easeIn},'-=0.65')
-        .fromTo(footerHeader , 0.5, {y: "-100%", x: 10 ,opacity:0},{y:"0%",x: 0, opacity:1, ease: Power0.easeIn},'-=0.65')
-        .fromTo($('.location'), 0.4 , {y: '100%',opacity:0 },{y: "0%", ease: Power0.easeIn,opacity:1 },'-=0.15')
-        .fromTo(loactionline , 0.4, { width: 0, opacity: 0} ,{ autoAlpha:1, width: '50px', opacity:1, ease: Power4.easeIn}, '-=0')
-        .set(newSlide,{opacity: 1},'-=2.4')
-    }
-    else if( data.from === 7 &&  data.to === 6 ) {
-      tl
-        .fromTo(currentSlide, 0.5,{y: '-150%', ease: Back.easeOut},{y: '0', ease: Power4.easeInOut,
-          onComplete: onCompleteFooter})
-        .set(newSlide,{opacity: 1},'-=2.4')
-        .set($('.slide7'), {y: '0'})
+      tl.fromTo(currentSlide,0.5,{opacity: 1,zIndex:2},{opacity: 0,zIndex:-1}, '+=0.65')
+        .set($('.slide7'), {zIndex:2,opacity: 1},'-=2.4')
     }
     else {
       tl
-        .fromTo(currentSlide,0.5,{opacity: 1},{opacity: 0}, '+=0.1')
+        .fromTo(currentSlide,0.5,{opacity: 1},{opacity: 0}, '+=0.65')
         .set(newSlide,{opacity: 1},'-=2.4')
     }
 
@@ -124,7 +102,6 @@ if ($(window).width() > 992 && device.desktop()) {
     const slidePagination = new TimelineMax();
 
     let positionIndicator = $('.aside-pagination li.is-active').offset().top;// top
-    console.log('pos', positionIndicator)
     let currentItem  = $('[data-gotoslide='+data.from+']');
     let newItem = $('[data-gotoslide='+data.to+']');
 
@@ -144,6 +121,7 @@ if ($(window).width() > 992 && device.desktop()) {
 
     const slide5 = new TimelineLite({paused: true});
     slide5
+      .set($('.main-slide__img'), {opacity: 0})
       .fromTo($(".main-slide__img"), 1.3, { y: '45%',
         opacity: 0,
         webkitClipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
@@ -158,7 +136,7 @@ if ($(window).width() > 992 && device.desktop()) {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         ease: Expo.easeOut,
         force3D: 1,
-        delay: 0.2
+        delay: 0.25
       }, 0.2)
       .fromTo($('.slider-about-section .main-slide__title'), 0.45, { y: '20px', opacity: 0}, { y: '0',opacity: 1}, '-=0.85')
       .fromTo($('.slider-about-section .slide-content'), 0.35, { y: '20px', opacity: 0}, { y: '0',opacity: 1},'-=0.65')

@@ -15,6 +15,8 @@ const p = new Paginator();
 
 $(window).on('load', function () {
 
+
+
     // .validation persey.js
   $(".form__control").on('click focus keypress', function() {
     $(this).addClass("has-focus");
@@ -155,13 +157,9 @@ $(window).on('load', function () {
     })
   }
 
-  // if ( device.tablet()){
-  //
-  //   const tlTablet= new TimelineLite();
-  //
-  // }
 
   if ($(window).width() > 992 && device.desktop() || device.tablet()) { // and mobile desktop and device tablet
+
 
     const tlWords = new TimelineLite({
       id:'init'

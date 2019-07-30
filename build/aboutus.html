@@ -7,8 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fff" />
     <meta name="format-detection" content="telephone=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" media="all" href="css/app.css" />
   </head>
   <body>
@@ -35,7 +33,7 @@
           </div>
           <div class="container">
             <div class="row justify-content-between">
-              <div class="col-md-12 col-lg-6 col-sm-12">
+              <div class="col-md-12 col-lg-7 col-sm-12">
                 <div class="aboutus__linebg3">
                   <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M70.8586 -2.54763e-06L100 0C100 55.1403 55.139 100 0 100L2.54784e-06 70.8561C39.0692 70.8561 70.8586 39.0674 70.8586 -2.54763e-06Z" fill="#FEBF1C" />
@@ -60,7 +58,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-5 col-lg-offset-1 ml-lg-auto col-md-12  col-sm-12">
+              <div class="col-lg-4 col-lg-offset-1 text-right  ml-lg-auto col-md-12  col-sm-12">
                 <div class="aside-form">
                   <h3 class=" js-show-popup aside-form__title">Have a project in mind?</h3>
                   <button class="button button--primary js-show-popup">Let’s talk</button>
@@ -131,17 +129,17 @@
             <path d="M19 19L1 0.999999" stroke="black" stroke-opacity="0.3" />
           </svg>
         </div>
-        <form data-parsley-validate class="form" name="form-contact" id="form-contact" data-parsley-validate>
-          <div class="container">
+        <form data-parsley-validate class="form form-contact" name="form-contact" id="form-contact">
+          <div class="container hide-success">
             <div class="row no-gutters">
               <h3 class="popup__title">Let's talk</h3>
             </div>
           </div>
-          <div class="container">
+          <div class="container hide-success">
             <div class="row no-gutters justify-content-between">
               <div class="col-48">
                 <div class="form__control">
-                  <input name="" required class="form__input" type="name" data-msg-required="The field is required." data-parsley-errors-container=".error-form1">
+                  <input name="name" required class="form__input" type="name" data-msg-required="The field is required." data-parsley-errors-container=".error-form1">
                   <label class="form__label">
                     <span class="form__required">*</span>Name </label>
                   <div class="error error-form1"></div>
@@ -149,7 +147,7 @@
               </div>
               <div class="col-48">
                 <div class="form__control">
-                  <input class="form__input" required name="" data-msg-required="The field is required." data-parsley-errors-container=".error-form2" type="email">
+                  <input class="form__input" required name="email" data-msg-required="The field is required." data-parsley-errors-container=".error-form2" type="email">
                   <label class="form__label">
                     <span class="form__required">*</span>Email </label>
                   <div class="error error-form2">
@@ -158,29 +156,35 @@
               </div>
             </div>
             <div class="form__control">
-              <input class="form__input" name="" type="text">
+              <input class="form__input" name="description" type="text">
               <label class="form__label">Describe your project</label>
             </div>
             <div class="form__control">
-              <input class="form__input" required name="" data-msg-required="The field is required." data-parsley-errors-container=".error-form3" type="text">
+              <input class="form__input" required name="message" data-msg-required="The field is required." data-parsley-errors-container=".error-form3" type="text">
               <label class="form__label">
                 <span class="form__required">*</span>Message </label>
               <div class="error error-form3">
               </div>
             </div>
             <div class="form__control form__control--last">
-              <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal data will be processed by Nerio GmbH. Please read our <a href="/policy.html">Privacy Notice</a> for more information. </p>
+              <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal data will be processed by Nerio GmbH.  Please read our <a href="/policy.html">Privacy Notice</a> for more information. </p>
               <div>
                 <label class="checkbox">
-                  <input data-parsley-required-message="" data-parsley-checkmin="1" data-parsley-error-message="You should agree with Privacy Policy" name="policy[]" required type="checkbox" />
+                  <input data-parsley-required-message="" data-parsley-checkmin="1" data-parsley-error-message="You should agree with Privacy Policy" name="policy[]" required value='policy-yes' type="checkbox" />
                   <span>I am informed about processing of my personal data and the right to withdraw my consent </span>
                 </label>
               </div>
             </div>
             </label>
             <div class="form__send">
-              <button class="button button--secondary " type="submit">Send message</button>
+              <button id="send-contact-data" class="button button--secondary " type="submit">Send message</button>
             </div>
+          </div>
+          <div class="show-success">
+            <p> Thank you !</p>
+          </div>
+          <div class="show-fail">
+            <p> oops ! server error . try again . </p>
           </div>
         </form>
       </div>

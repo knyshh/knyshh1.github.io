@@ -7,10 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fff" />
     <meta name="format-detection" content="telephone=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" media="all" href="css/app.css" />
   </head>
   <body class="mainbody">
@@ -43,9 +39,9 @@
       <div class="sections">
         <section data-slide="1" class="section is-active slide slide1 slide-intro main-slider-section home-slide--intro">
           <span class="scroll" id="scroll" data-goto="2">Scroll down </span>
-          <div class="container-fluid desktop">
+          <div class="container-fluid">
             <div class="centered mobile-v">
-              <h1 class="mobile-title title">Strong creative </br>solutions <span class="orange-txt">.</span>
+              <h1 class="mobile-title title" style="opacity: 0;">Strong creative </br>solutions <span class="orange-txt">.</span>
               </h1>
             </div>
             <div class="desktop-v row no-gutters justify-content-center align-items-center">
@@ -177,13 +173,13 @@
         <section data-slide="2" class="section slide slide2 about-section home-slide">
           <div class="container">
             <div class="row justify-content-between">
-              <div class="col-lg-6 col-md-12 col-sm-12 col-12 ">
+              <div class="about-left col-lg-6 col-md-12 ">
                 <div class="about-section__img">
-                  <img srcset="img/img-about@1x.png, img/img-about@2x.png 2x" src="img/img-about@1x.png" alt="">
+                  <img style="opacity: 0;" srcset="img/img-about@1x.png, img/img-about@2x.png 2x" src="img/img-about@1x.png" alt="">
                 </div>
               </div>
-              <div class="col-lg-5 col-md-12 col-sm-12 col-12 col-lg-offset-1 ml-lg-auto">
-                <div class="about">
+              <div class="about-right col-lg-5 col-md-12  col-lg-offset-1 ml-lg-auto">
+                <div class="about" style="opacity: 0;">
                   <div class="line-orange"></div>
                   <h3 class="about__title">We help your business grow</h3>
                   <p class="about__txt"> Nerio GmbH was founded in 2014 with a passion for e-commerce. E-commerce is our specialty, helping to grow your online presence and profits. </p>
@@ -196,8 +192,8 @@
         <div class="container">
           <div class="tablet-slider">
             <div class="tablet-slider__item">
-              <h3 class="main-slide__title">Creation</h3>
               <div class="slide-content">
+                <h3 class="main-slide__title">Creation</h3>
                 <p class="main-slide__txt">We create and operate high performing websites focused on showcasing your product or service. You can turn to us for marketing and technology know-how. </p>
                 <ul class="inner-pagination">
                   <li class="inner-pagination__item inner-slide3-block1">
@@ -217,15 +213,15 @@
               </div>
             </div>
             <div class="tablet-slider__item">
-              <h3 class="main-slide__title">Consulting</h3>
               <div class="slide-content">
+                <h3 class="main-slide__title">Consulting</h3>
                 <p class="main-slide__txt">Our consultation services will have you on the way to digital transformation. We specialize in market-and demand-oriented strategies. </p>
                 <a href="/whatwedo.html" class="button--mhide button button--primary">Read more</a>
               </div>
             </div>
             <div class="tablet-slider__item">
-              <h3 class="main-slide__title">Investment</h3>
               <div class="slide-content">
+                <h3 class="main-slide__title">Investment</h3>
                 <p class="main-slide__txt">We partner with passionate B2C entrepreneurs to bring them to the next stage of commercial success with our investments.</p>
                 <a href="/whatwedo.html" class="button button--primary">Read more</a>
               </div>
@@ -236,7 +232,7 @@
           <div class="home-slide main-slide__item">
             <div class="container">
               <div class="row justify-content-between">
-                <div class="col-md-12 col-sm-12 col-12  col-lg-5 offset-lg-1 align-self-center col-left-slider">
+                <div class="slider-left col-md-12  col-lg-5 offset-lg-1 align-self-center col-left-slider">
                   <div class="slide-left">
                     <h3 class="main-slide__title">Creation</h3>
                     <div class="slide-content">
@@ -259,7 +255,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-12  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
+                <div class="slider-right  col-md-12  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
                   <div class="centered-block">
                     <img class="main-slide__img" srcset="img/img-creativity@1x.png, img/img-creativity@2x.png 2x" src="/img/img-creativity@1x.png" alt="">
                   </div>
@@ -272,7 +268,7 @@
           <div class="home-slide main-slide__item">
             <div class="container">
               <div class="row justify-content-between">
-                <div class="col-md-12 col-sm-12 col-12  col-lg-5 offset-lg-1 align-self-center  col-left-slider">
+                <div class="col-md-12 slider-left col-lg-5 offset-lg-1 align-self-center  col-left-slider">
                   <div class="slide-left">
                     <h3 class="main-slide__title">Consulting</h3>
                     <div class="slide-content">
@@ -281,7 +277,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-12  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
+                <div class="col-md-12  slider-right col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
                   <div class="centered-block">
                     <img class="main-slide__img" srcset="/img/img-consulting@1x.png, /img/img-consulting@2x.png 2x" src="/img/img-consulting@1x.png" alt="">
                   </div>
@@ -294,7 +290,7 @@
           <div class="home-slide main-slide__item">
             <div class="container">
               <div class="row justify-content-between">
-                <div class="col-md-12 col-sm-12 col-12  col-lg-5 offset-lg-1 align-self-center col-left-slider">
+                <div class="col-md-12 slider-left col-lg-5 offset-lg-1 align-self-center col-left-slider">
                   <div class="slide-left">
                     <h3 class="main-slide__title">Investment</h3>
                     <div class="slide-content">
@@ -303,7 +299,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12 col-sm-12 col-12  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
+                <div class="col-md-12 slider-right  col-lg-5 col-lg-offset-1 ml-lg-auto align-self-center">
                   <div class="centered-block">
                     <img class="main-slide__img" srcset="/img/img-investment@1x.png, /img/img-investment@2x.png 2x" src="/img/img-investment@1x.png" alt="">
                   </div>
@@ -374,17 +370,17 @@
               <path d="M19 19L1 0.999999" stroke="black" stroke-opacity="0.3" />
             </svg>
           </div>
-          <form data-parsley-validate class="form" name="form-contact" id="form-contact" data-parsley-validate>
-            <div class="container">
+          <form data-parsley-validate class="form form-contact" name="form-contact" id="form-contact">
+            <div class="container hide-success">
               <div class="row no-gutters">
                 <h3 class="popup__title">Let's talk</h3>
               </div>
             </div>
-            <div class="container">
+            <div class="container hide-success">
               <div class="row no-gutters justify-content-between">
                 <div class="col-48">
                   <div class="form__control">
-                    <input name="" required class="form__input" type="name" data-msg-required="The field is required." data-parsley-errors-container=".error-form1">
+                    <input name="name" required class="form__input" type="name" data-msg-required="The field is required." data-parsley-errors-container=".error-form1">
                     <label class="form__label">
                       <span class="form__required">*</span>Name </label>
                     <div class="error error-form1"></div>
@@ -392,7 +388,7 @@
                 </div>
                 <div class="col-48">
                   <div class="form__control">
-                    <input class="form__input" required name="" data-msg-required="The field is required." data-parsley-errors-container=".error-form2" type="email">
+                    <input class="form__input" required name="email" data-msg-required="The field is required." data-parsley-errors-container=".error-form2" type="email">
                     <label class="form__label">
                       <span class="form__required">*</span>Email </label>
                     <div class="error error-form2">
@@ -401,29 +397,35 @@
                 </div>
               </div>
               <div class="form__control">
-                <input class="form__input" name="" type="text">
+                <input class="form__input" name="description" type="text">
                 <label class="form__label">Describe your project</label>
               </div>
               <div class="form__control">
-                <input class="form__input" required name="" data-msg-required="The field is required." data-parsley-errors-container=".error-form3" type="text">
+                <input class="form__input" required name="message" data-msg-required="The field is required." data-parsley-errors-container=".error-form3" type="text">
                 <label class="form__label">
                   <span class="form__required">*</span>Message </label>
                 <div class="error error-form3">
                 </div>
               </div>
               <div class="form__control form__control--last">
-                <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal data will be processed by Nerio GmbH. Please read our <a href="/policy.html">Privacy Notice</a> for more information. </p>
+                <p class="form__txt"> As a result of submitting completed “Contact Us” form, your personal data will be processed by Nerio GmbH.  Please read our <a href="/policy.html">Privacy Notice</a> for more information. </p>
                 <div>
                   <label class="checkbox">
-                    <input data-parsley-required-message="" data-parsley-checkmin="1" data-parsley-error-message="You should agree with Privacy Policy" name="policy[]" required type="checkbox" />
+                    <input data-parsley-required-message="" data-parsley-checkmin="1" data-parsley-error-message="You should agree with Privacy Policy" name="policy[]" required value='policy-yes' type="checkbox" />
                     <span>I am informed about processing of my personal data and the right to withdraw my consent </span>
                   </label>
                 </div>
               </div>
               </label>
               <div class="form__send">
-                <button class="button button--secondary " type="submit">Send message</button>
+                <button id="send-contact-data" class="button button--secondary" type="submit">Send message</button>
               </div>
+            </div>
+            <div class="show-success">
+              <p> Thank you !</p>
+            </div>
+            <div class="show-fail">
+              <p> oops ! server error . try again . </p>
             </div>
           </form>
         </div>
