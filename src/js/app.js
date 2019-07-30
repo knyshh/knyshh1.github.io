@@ -273,10 +273,10 @@ $(window).on('load', function () {
   const $map = $('.wrapper').hasClass('withoutmap');
 
   if(!$('.wrapper').hasClass('withoutmap')) {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYWxpbmFrbnlzaCIsImEiOiJjanllYXVhOHAwemtoM25rNHdpM3ZzcDdyIn0.rAXf3k1slV_7Pmiq8iRZiQ';
+    mapboxgl.accessToken = 'pk.eyJ1IjoibmVyaW9nbWJoIiwiYSI6ImNqeXBzZG5kdjFlNzEzbXV3ZTlseHZiNjkifQ.imC6UjjZpNa3ZvoF0j3jAA';
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/alinaknysh/cjyjojy9h06v41dmcm5m9f6sc',
+      style: 'mapbox://styles/neriogmbh/cjypw1n9l0ccv1cqk3ub7xarz',
       center: [ 12.36148, 51.34515],
       zoom: 13
     });
